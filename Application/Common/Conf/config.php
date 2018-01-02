@@ -24,4 +24,7 @@ return array(
     'DB_CHARSET'            =>  'utf8',      // 数据库编码默认采用utf8
 
     'SHOW_PAGE_TRACE' =>true,
+    //模板配置
+    'LAYOUT_ON'=>true,
+    'LAYOUT_NAME'=>'layout'
 );

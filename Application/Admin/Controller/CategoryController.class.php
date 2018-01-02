@@ -15,10 +15,20 @@ class CategoryController extends Controller {
     }
 
     public function add(){
+        if(IS_POST){
+            var_dump($_POST);
+        }else{
+            $this->display('add');
+        }
 
     }
 
     public function edit(){
+        if(IS_POST){
+
+        }else{
+            $this->display('edit');
+        }
 
     }
 
