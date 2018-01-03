@@ -215,23 +215,26 @@
                         </thead>
                         <tbody>
 
-                           <tr>
-                                <td align="center">6</td>
-                                <td align="center">7</td>
-                                <td align="center">test</td>
-                                <td align="center">test</td>
-                                <td align="center">test</td>
-                                <td align="center">test</td>
+                        <?php if(is_array($categoryes)): $i = 0; $__LIST__ = $categoryes;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+                                <td align="center"><?php echo ($vo["cate_id"]); ?></td>
+                                <td align="center"><?php echo ($vo["parentid"]); ?></td>
+                                <td align="center"><?php echo ($vo["cate_name"]); ?></td>
+                                <td align="center"><?php echo ($vo["cate_ename"]); ?></td>
                                 <td align="center">
-                                    <a href="/admin/user/edit/id/6.html" class="btn btn-primary btn-sm shiny">
+                                    <?php if($vo['cate_pic'] != '' ): ?><img src="/chuangyi/<?php echo ($vo["cate_pic"]); ?>" alt="">
+                                    <?php else: ?> 暂时没有图片<?php endif; ?>
+
+                                </td>
+                                <td align="center"><?php echo ($vo["cate_type"]); ?></td>
+                                <td align="center">
+                                    <a href="/chuangyi/index.php/Admin/Category/edit/cate_id/<?php echo ($vo["cate_id"]); ?>" class="btn btn-primary btn-sm shiny">
                                         <i class="fa fa-edit"></i> 编辑
                                     </a>
-                                    <a href="#" onClick="warning('确实要删除吗', '/admin/user/del/id/6.html')" class="btn btn-danger btn-sm shiny">
+                                    <a href="#" onClick="warning('确实要删除吗', '/chuangyi/index.php/Admin/Category/delete/cate_id/<?php echo ($vo["cate_id"]); ?>')" class="btn btn-danger btn-sm shiny">
                                         <i class="fa fa-trash-o"></i> 删除
                                     </a>
                                 </td>
-                            </tr>
-
+                            </tr><?php endforeach; endif; else: echo "" ;endif; ?>
 
                         </tbody>
                     </table>
