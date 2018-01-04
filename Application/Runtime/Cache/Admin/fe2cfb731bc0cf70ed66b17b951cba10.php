@@ -209,7 +209,7 @@
                                 <th class="text-center">分类名称</th>
                                 <th class="text-center">分类英文名称</th>
                                 <th class="text-center">分类缩略图</th>
-                                <th class="text-center">分类类别</th>
+                                <th class="text-center">栏目类型</th>
                                 <th class="text-center">操作</th>
                             </tr>
                         </thead>
@@ -225,7 +225,11 @@
                                     <?php else: ?> 暂时没有图片<?php endif; ?>
 
                                 </td>
-                                <td align="center"><?php echo ($vo["cate_type"]); ?></td>
+                                <td align="center">
+                                    <?php if($vo['cate_type'] == 0 ): ?>封面
+                                        <?php elseif($vo['cate_type'] == 1 ): ?>列表
+                                        <?php else: ?> 产品<?php endif; ?>
+                                </td>
                                 <td align="center">
                                     <a href="/chuangyi/index.php/Admin/Category/edit/cate_id/<?php echo ($vo["cate_id"]); ?>" class="btn btn-primary btn-sm shiny">
                                         <i class="fa fa-edit"></i> 编辑
