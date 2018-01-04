@@ -34,7 +34,7 @@
                             <div class="widget-body">
                                 <div id="horizontal-form">
 
-                                    <form class="form-horizontal" role="form" action="" method="post">
+                                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
 
                                         <div class="form-group">
                                             <label for="cate_name" class="col-sm-2 control-label no-padding-right">分类名称</label>
@@ -54,7 +54,7 @@
                                         <div class="form-group">
                                             <label for="cate_pic" class="col-sm-2 control-label no-padding-right">缩略图</label>
                                             <div class="col-sm-6">
-                                                <input class="" id="cate_pic" name="cate_pic"  type="file">
+
                                             </div>
                                         </div>
 
@@ -69,52 +69,47 @@
                                         <div class="form-group">
                                             <label for="cate_desc" class="col-sm-2 control-label no-padding-right">分类描述</label>
                                             <div class="col-sm-6">
-                                                <textarea name="cate_desc" id="cate_desc" cols="30" rows="5"></textarea>
+                                                <textarea class="form-control" rows="3" id="cate_desc" name="cate_desc" ></textarea>
                                             </div>
 
                                         </div>
 
-                                        <div class="form-group">
-                                            <label  class="col-sm-2 control-label no-padding-right">栏目类型</label>
-                                            <div class="col-sm-6 ">
-                                                <label class="radio-inline" for="inlineRadio1">
-                                                    <input type="radio" name="cate_type" id="inlineRadio1" value="0"> 封面
-                                                </label>
-                                                <label class="radio-inline radio" for="inlineRadio2">
-                                                    <input type="radio" name="cate_type" id="inlineRadio2" value="1" check="checked"> 列表
-                                                </label>
-                                                <label class="radio-inline radio" for="inlineRadio3">
-                                                    <input type="radio" name="cate_type" id="inlineRadio3" value="2">产品
-                                                </label>
-                                            </div>
-                                        </div>
+
+                                        <!-- radio 和checkbox 前面的按钮不显示，源文件中过滤了不显示，加入这一段就显示了 -->
+                                        <style type="text/css">
+                                            input[type="radio"] {
+                                                left: 25px;
+                                                opacity: 1;
+                                            }
+                                        </style>
+
 
                                         <div class="form-group">
                                             <label  class="col-sm-2 control-label no-padding-right">栏目类型</label>
-                                            <div class="col-sm-6 ">
-                                                <label class="radio-inline" >
-                                                    <input type="radio" name="cate_type" id="inlineRadio1" value="0"> 封面
-                                                </label>
-                                                <label class="radio-inline radio" >
-                                                    <input type="radio" name="cate_type" id="inlineRadio2" value="1" check="checked"> 列表
-                                                </label>
-                                                <label class="radio-inline radio">
-                                                    <input type="radio" name="cate_type" id="inlineRadio3" value="2">产品
+
                                                 </label>
                                             </div>
                                         </div>
+
 
                                         <div class="form-group">
                                             <label for="parentid" class="col-sm-2 control-label no-padding-right">上级栏目</label>
                                             <div class="col-sm-6">
-                                                <input type="text" name="parentid" id="parentid">
+                                                <select class="form-control" name="parentid" id="parentid">
+                                                    <option value="0">顶级分类</option>
+                                                    <volist name="categoryes" id="vo">
+                                                        <option value="{$vo.cate_id}">{$vo.cate_name}</option>
+                                                    </volist>
+                                                </select>
                                             </div>
                                         </div>
 
+
+
                                         <div class="form-group">
-                                            <label for="cate_content" class="col-sm-2 control-label no-padding-right">栏目内容</label>
+                                            <label for="content" class="col-sm-2 control-label no-padding-right">栏目内容</label>
                                             <div class="col-sm-6">
-                                                <textarea name="cate_content" id="cate_content" cols="60" rows="5"></textarea>
+                                                <textarea name="cate_content" id="content" cols="60" rows="5"></textarea>
                                             </div>
                                         </div>
 
@@ -136,4 +131,10 @@
         <!-- /Page Content -->
     </div>
 </div>
+<script src="__UEDITOR__/ueditor.config.js"></script>
+<script src="__UEDITOR__/ueditor.all.min.js"></script>
+<script src="__UEDITOR__/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript">
+    UE.getEditor('content',{initialFrameWidth:800,initialFrameHeight:400,});
+</script>
 

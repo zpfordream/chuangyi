@@ -208,7 +208,7 @@
                             <div class="widget-body">
                                 <div id="horizontal-form">
 
-                                    <form class="form-horizontal" role="form" action="" method="post">
+                                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
 
                                         <div class="form-group">
                                             <label for="cate_name" class="col-sm-2 control-label no-padding-right">分类名称</label>
@@ -228,7 +228,12 @@
                                         <div class="form-group">
                                             <label for="cate_pic" class="col-sm-2 control-label no-padding-right">缩略图</label>
                                             <div class="col-sm-6">
+<<<<<<< HEAD
                                                 <input class="" id="cate_pic" name="cate_pic"  type="file">
+=======
+                                                <label for="cate_pic"></label>
+                                                <input type="file" id="cate_pic" name="cate_pic" >
+>>>>>>> 38923a209429dfe93baeb71dabf53600d3d64699
                                             </div>
                                         </div>
 
@@ -243,13 +248,24 @@
                                         <div class="form-group">
                                             <label for="cate_desc" class="col-sm-2 control-label no-padding-right">分类描述</label>
                                             <div class="col-sm-6">
-                                                <textarea name="cate_desc" id="cate_desc" cols="30" rows="5"></textarea>
+                                                <textarea class="form-control" rows="3" id="cate_desc" name="cate_desc" ></textarea>
                                             </div>
 
                                         </div>
 
+
+                                        <!-- radio 和checkbox 前面的按钮不显示，源文件中过滤了不显示，加入这一段就显示了 -->
+                                        <style type="text/css">
+                                            input[type="radio"] {
+                                                left: 25px;
+                                                opacity: 1;
+                                            }
+                                        </style>
+
+
                                         <div class="form-group">
                                             <label  class="col-sm-2 control-label no-padding-right">栏目类型</label>
+<<<<<<< HEAD
                                             <div class="col-sm-6 ">
                                                 <label class="radio-inline" for="inlineRadio1">
                                                     <input type="radio" name="cate_type" id="inlineRadio1" value="0"> 封面
@@ -274,21 +290,38 @@
                                                 </label>
                                                 <label class="radio-inline radio">
                                                     <input type="radio" name="cate_type" id="inlineRadio3" value="2">产品
+=======
+                                            <div class="col-sm-6">
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="cate_type" id="inlineRadio1" value="0"> 封面
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="cate_type" id="inlineRadio2" value="1"> 列表
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="cate_type" id="inlineRadio3" value="2"> 产品
+>>>>>>> 38923a209429dfe93baeb71dabf53600d3d64699
                                                 </label>
                                             </div>
                                         </div>
 
+
                                         <div class="form-group">
                                             <label for="parentid" class="col-sm-2 control-label no-padding-right">上级栏目</label>
                                             <div class="col-sm-6">
-                                                <input type="text" name="parentid" id="parentid">
+                                                <select class="form-control" name="parentid" id="parentid">
+                                                    <option value="0">顶级分类</option>
+                                                    <?php if(is_array($categoryes)): $i = 0; $__LIST__ = $categoryes;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["cate_id"]); ?>"><?php echo ($vo["cate_name"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+                                                </select>
                                             </div>
                                         </div>
 
+
+
                                         <div class="form-group">
-                                            <label for="cate_content" class="col-sm-2 control-label no-padding-right">栏目内容</label>
+                                            <label for="content" class="col-sm-2 control-label no-padding-right">栏目内容</label>
                                             <div class="col-sm-6">
-                                                <textarea name="cate_content" id="cate_content" cols="60" rows="5"></textarea>
+                                                <textarea name="cate_content" id="content" cols="60" rows="5"></textarea>
                                             </div>
                                         </div>
 
@@ -310,6 +343,12 @@
         <!-- /Page Content -->
     </div>
 </div>
+<script src="http://127.0.0.1/chuangyi/Public/ueditor/ueditor.config.js"></script>
+<script src="http://127.0.0.1/chuangyi/Public/ueditor/ueditor.all.min.js"></script>
+<script src="http://127.0.0.1/chuangyi/Public/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript">
+    UE.getEditor('content',{initialFrameWidth:800,initialFrameHeight:400,});
+</script>
 
 
 <!--Basic Scripts-->
