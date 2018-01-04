@@ -6,13 +6,10 @@ class CategoryController extends Controller {
 
     public function index(){
 
-        //因为是关联表，1.可以直接sql语言写 2.直接把方法写到CategoryModel中 3. 用viewModel 见ykj
-
         //证明后台；联调没问题
         $category   =  D('category');
         $categoryes = $category ->select();
 //        pri($categoryes);
-
         $this->assign('categoryes' , $categoryes);
         $this->display('list');
     }
@@ -49,7 +46,7 @@ class CategoryController extends Controller {
             }
 
             //2. 验证变量
-            $category = D('Common/Category');
+            $category = D('category');
 
 
             //3.存入库中
@@ -76,18 +73,7 @@ class CategoryController extends Controller {
     public function edit(){
         if(IS_POST){
 
-
-
-
         }else{
-            $id = I('cate_id') + 0 ;
-
-            $category = M('category');
-            $categoryesa = $category->find($id);
-            $categoryes  = $category->select();
-
-            $this->assign('categoryesa',$categoryesa);
-            $this->assign('categoryes',$categoryes);
             $this->display('edit');
         }
 
