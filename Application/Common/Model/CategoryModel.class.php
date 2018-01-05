@@ -17,4 +17,23 @@ class CategoryModel extends Model {
         array('cate_name','2,10','分类名称必须在2-10字内！',0,'length',3), // 当值不为空的时候判断是否在一个范围内
 
     );
+
+
+    public function categoryTree(){
+        $arr = $this->select();
+        return $this->_cateDigui($arr) ;
+    }
+
+    private function _cateDigui( $arr ,$pid = 0 ,$level = 0 ){
+
+        static  $data ;
+        foreach( $arr as $k => $v){
+            if($v['parentid'] == $pid ){
+                $v['level'] = $level;
+                $data[]     =  $v   ;
+                $this->_cateDigui($arr , $v['cate_id'] , $level+1);
+            }
+        }
+        return $data;
+    }
 }

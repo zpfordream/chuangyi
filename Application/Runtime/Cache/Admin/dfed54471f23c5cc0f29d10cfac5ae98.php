@@ -300,6 +300,8 @@
                                             </div>
                                         </div>
 
+                                        <input type="hidden" name="cate_id" value="<?php echo ($categoryesa["cate_id"]); ?>">
+
                                         <div class="form-group">
                                             <div class="col-sm-offset-2 col-sm-10">
                                                 <button type="submit" class="btn btn-default">保存信息</button>
