@@ -36,4 +36,70 @@ class CategoryModel extends Model {
         }
         return $data;
     }
+
+    public function categoryChindrenId($cateid){
+        $arr = $this->select();
+//        var_dump($arr);
+        return $this->_getChildrenId($arr , $cateid);
+
+    }
+     private function _getChildrenId($arr , $id){
+
+         static $data ;
+         foreach( $arr as $k => $v){
+             if( $v['parentid'] == $id ){
+                 $data[] = $v['cate_id'];
+                 $this->_getChildrenId($arr ,$v['cate_id']);
+             }
+         }
+         return $data;
+     }
+
+    //这里用的是方法的前置和后置操作，MODEL中delete方法的前置
+    public function  _before_delete($options){
+//        pri($options);
+
+//  单个删除打印出来的
+//  array (size=3)
+//  'where' =>
+//    array (size=1)
+//      'cate_id' => int 67
+//  'table' => string 'ar_category' (length=11)
+//  'model' => string 'Category' (length=8)
+
+//   批量删除打印的  ， 不同的地方在于where数组的cate_id 一个是变量一个是数组
+//   array (size=3)
+//  'where' =>
+//    array (size=1)
+//      'cate_id' =>
+//        array (size=2)
+//          0 => string 'IN' (length=2)
+//          1 => string '67,68,78' (length=8)
+//  'table' => string 'ar_category' (length=11)
+//  'model' => string 'Category' (length=8)
+
+        //如果是数组的话，就是批量删除
+        if( is_array( $options['where']['cate_id'])) {
+
+            $arr = explode(',', $options['where']['cate_id'][1]);
+            $soncates = array();
+            foreach ($arr as $k => $v) {
+                $soncates2 = $this->_getChildrenId($v);
+                $soncates = array_merge($soncates, $soncates2);
+            }
+            $soncates = array_unique($soncates);
+            $soncates = implode(',', $soncates);
+            if ($soncates) {
+                $sql = "delete from ar_category where cate_id in ({$soncates})";
+                $this->execute($sql);
+            }
+        }else{
+            $childrenIds = $this->categoryChindrenId($options['where']['cate_id']);
+            $childrenIds = implode(',',$childrenIds);
+            if($childrenIds){
+                $sql = "delete from ar_category where cate_id in ({$childrenIds})";
+                $this->execute($sql);
+            }
+        }
+    }
 }
