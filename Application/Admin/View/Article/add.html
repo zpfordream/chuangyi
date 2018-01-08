@@ -1,0 +1,129 @@
+
+<div class="main-container container-fluid">
+    <div class="page-container">
+        <!-- Page Sidebar -->
+
+        <include file="Public:left" />
+
+        <!-- /Page Sidebar -->
+        <!-- Page Content -->
+        <div class="page-content">
+            <!-- Page Breadcrumb -->
+            <div class="page-breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="#">系统</a>
+                    </li>
+                    <li>
+                        <a href="#">用户管理</a>
+                    </li>
+                    <li class="active">添加分类</li>
+                </ul>
+            </div>
+            <!-- /Page Breadcrumb -->
+
+            <!-- Page Body -->
+            <div class="page-body">
+
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12 col-xs-12">
+                        <div class="widget">
+                            <div class="widget-header bordered-bottom bordered-blue">
+                                <span class="widget-caption">新增类别</span>
+                            </div>
+                            <div class="widget-body">
+                                <div id="horizontal-form">
+
+                                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+
+                                        <div class="form-group">
+                                            <label for="ar_title" class="col-sm-2 control-label no-padding-right">标题名称</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control" id="ar_title" placeholder="" name="ar_title" required="" type="text">
+                                            </div>
+                                            <p class="help-block col-sm-4 red">* 必填</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="ar_author" class="col-sm-2 control-label no-padding-right">作者</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control" id="ar_author" placeholder="" name="ar_author"  type="text">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="ar_pic" class="col-sm-2 control-label no-padding-right">文章图片</label>
+                                            <div class="col-sm-6">
+                                                <label for="ar_pic"></label>
+                                                <input type="file" id="ar_pic" name="ar_pic" >
+                                            </div>
+                                        </div>
+
+
+                                        <!-- radio 和checkbox 前面的按钮不显示，源文件中过滤了不显示，加入这一段就显示了 -->
+                                        <style type="text/css">
+                                            input[type="radio"] {
+                                                left: 25px;
+                                                opacity: 1;
+                                            }
+                                        </style>
+
+
+                                        <div class="form-group">
+                                            <label  class="col-sm-2 control-label no-padding-right">是否推荐</label>
+                                            <div class="col-sm-6">
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="ar_rem" id="inlineRadio1" value="0"> 不推荐
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="ar_rem" id="inlineRadio2" value="1"> 推荐
+                                                </label>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label for="ar_cateid" class="col-sm-2 control-label no-padding-right">所属栏目</label>
+                                            <div class="col-sm-6">
+                                                <select class="form-control" name="ar_cateid" id="ar_cateid">
+                                                    <volist name="categoryes" id="vo">
+                                                        <option value="{$vo.cate_id}"><?php echo str_repeat('------',$vo['level']); ?>{$vo.cate_name}</option>
+                                                    </volist>
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="form-group">
+                                            <label for="content" class="col-sm-2 control-label no-padding-right">文章内容</label>
+                                            <div class="col-sm-6">
+                                                <textarea name="ar_content" id="content" cols="60" rows="5"></textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-10">
+                                                <button type="submit" class="btn btn-default">保存信息</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /Page Body -->
+        </div>
+        <!-- /Page Content -->
+    </div>
+</div>
+<script src="__UEDITOR__/ueditor.config.js"></script>
+<script src="__UEDITOR__/ueditor.all.min.js"></script>
+<script src="__UEDITOR__/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript">
+    UE.getEditor('content',{initialFrameWidth:800,initialFrameHeight:400,});
+</script>
+
