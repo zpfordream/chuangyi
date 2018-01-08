@@ -195,6 +195,11 @@
                 <div class="page-body">
                     
 <button type="button" tooltip="添加用户" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '/chuangyi/index.php/Admin/Category/add'"> <i class="fa fa-plus"></i> 添加类别
+<button type="button" tooltip="批量删除" class="btn btn-sm btn-azure btn-addon" onClick="javascript:document.getElementById('myForm').submit()"> <i class="fa fa-plus"></i> 批量删除
+
+
+
+
 </button>
 <div class="row">
     <div class="col-lg-12 col-sm-12 col-xs-12">
@@ -204,6 +209,7 @@
                     <table class="table table-bordered table-hover">
                         <thead class="">
                             <tr>
+                                <th class="text-center" width="2%"></th>
                                 <th class="text-center">ID</th>
                                 <th class="text-center">父类ID</th>
                                 <th class="text-center">分类名称</th>
@@ -215,10 +221,16 @@
                         </thead>
                         <tbody>
 
+                        <form action="/chuangyi/index.php/Admin/Category/Adelete" method="post" id="myForm" >
+
                         <?php if(is_array($categoryes)): $i = 0; $__LIST__ = $categoryes;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+
+                                <td align="center">
+                                    <input type="checkbox" name="id[]" value="<?php echo ($vo["cate_id"]); ?>">
+                                </td>
                                 <td align="center"><?php echo ($vo["cate_id"]); ?></td>
                                 <td align="center"><?php echo ($vo["parentid"]); ?></td>
-                                <td align="center"><?php echo ($vo["cate_name"]); ?></td>
+                                <td align="left"><?php echo str_repeat('------',$vo['level']); echo ($vo["cate_name"]); ?></td>
                                 <td align="center"><?php echo ($vo["cate_ename"]); ?></td>
                                 <td align="center">
                                     <?php if($vo['cate_pic'] != '' ): ?><img src="/chuangyi/<?php echo ($vo["cate_pic"]); ?>" alt="">
@@ -239,6 +251,8 @@
                                     </a>
                                 </td>
                             </tr><?php endforeach; endif; else: echo "" ;endif; ?>
+
+                        </form>
 
                         </tbody>
                     </table>

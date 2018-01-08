@@ -65,8 +65,8 @@ class CategoryController extends Controller {
 
         }else{
 
-            $category = M('category');
-            $categoryes = $category ->select();
+            $category = D('Common/Category');
+            $categoryes = $category ->categoryTree();
             $this->assign('categoryes',$categoryes);
             $this->display('add');
         }
@@ -134,7 +134,32 @@ class CategoryController extends Controller {
 
     }
 
-    public function  del(){
+    public function  delete(){
 
+        $id = I('cate_id') + 0 ;
+        $category  =  D('Common/Category');
+
+        if($category -> delete($id)){
+            $this->success('分类删除成功',U('index'),3);
+        }else{
+            $this->error('分类删除失败');
+        }
+
+    }
+
+    public  function  Adelete(){
+//        pri($_POST);
+
+        $ids = I('id');
+        if($ids){
+            $del_ids = implode(',',$ids);
+
+            $category = D('Common/Category');
+            if($category->delete($del_ids)){
+                $this->success('分类删除成功',U('index'),3);
+            }else{
+                $this->error('分类删除失败');
+            }
+        }
     }
 }
