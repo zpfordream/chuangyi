@@ -119,7 +119,7 @@ class CategoryController extends Controller {
             }else{
                 $this->error($category->getError());
             }
-            
+
         }else{
             $id = I('cate_id') + 0 ;
 
