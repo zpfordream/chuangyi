@@ -11,8 +11,10 @@ class ArticleController extends Controller {
         $Page       = new \Think\Page($count,2);// 实例化分页类 传入总记录数和每页显示的记录数2
         $show       = $Page->show();// 分页显示输出
 
+//        $sql = "select xxxx from TABLE JOIN TABLE b on a.xx= b.xx ";
+
         // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
-        $list = $Article ->order('ar_id desc')->limit($Page->firstRow.','.$Page->listRows)->select();
+        $list = $Article ->field()->join('ar_category ON ar_article.ar_cateid = ar_category.cate_id')->order('ar_id desc')->limit($Page->firstRow.','.$Page->listRows)->select();
         $this->assign('list',$list);// 赋值数据集
         $this->assign('page',$show);// 赋值分页输出
 //        pri($list);
@@ -136,13 +138,13 @@ class ArticleController extends Controller {
 
     public function  delete(){
 
-        $id = I('cate_id') + 0 ;
-        $category  =  D('Common/Category');
+        $id = I('ar_id') + 0 ;
+        $article  =  D('Common/Article');
 
-        if($category -> delete($id)){
-            $this->success('分类删除成功',U('index'),3);
+        if($article -> delete($id)){
+            $this->success('文章删除成功',U('index'),3);
         }else{
-            $this->error('分类删除失败');
+            $this->error('文章删除失败');
         }
 
     }
@@ -154,11 +156,11 @@ class ArticleController extends Controller {
         if($ids){
             $del_ids = implode(',',$ids);
 
-            $category = D('Common/Category');
-            if($category->delete($del_ids)){
-                $this->success('分类删除成功',U('index'),3);
+            $article  =  D('Common/Article');
+            if($article->delete($del_ids)){
+                $this->success('文章删除成功',U('index'),3);
             }else{
-                $this->error('分类删除失败');
+                $this->error('文章删除失败');
             }
         }
     }

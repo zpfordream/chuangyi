@@ -83,11 +83,11 @@
 
 <!-- /头部 -->
 
-<div class="main-container container-fluid">
-    <div class="page-container">
-        <!-- Page Sidebar -->
+	<div class="main-container container-fluid">
+		<div class="page-container">
+            <!-- Page Sidebar -->
 
-        <!-- Page Sidebar -->
+            <!-- Page Sidebar -->
 <div class="page-sidebar" id="sidebar">
     <!-- Page Sidebar Header-->
     <div class="sidebar-header-wrapper">
@@ -177,144 +177,92 @@
 </div>
 <!-- /Page Sidebar -->
 
-        <!-- /Page Sidebar -->
-        <!-- Page Content -->
-        <div class="page-content">
-            <!-- Page Breadcrumb -->
-            <div class="page-breadcrumbs">
-                <ul class="breadcrumb">
-                    <li>
-                        <a href="#">系统</a>
-                    </li>
-                    <li>
-                        <a href="#">用户管理</a>
-                    </li>
-                    <li class="active">添加分类</li>
-                </ul>
-            </div>
-            <!-- /Page Breadcrumb -->
-
-            <!-- Page Body -->
-            <div class="page-body">
-
-                <div class="row">
-                    <div class="col-lg-12 col-sm-12 col-xs-12">
-                        <div class="widget">
-                            <div class="widget-header bordered-bottom bordered-blue">
-                                <span class="widget-caption">新增类别</span>
-                            </div>
-                            <div class="widget-body">
-                                <div id="horizontal-form">
-
-                                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
-
-                                        <div class="form-group">
-                                            <label for="cate_name" class="col-sm-2 control-label no-padding-right">分类名称</label>
-                                            <div class="col-sm-6">
-                                                <input class="form-control" id="cate_name" placeholder="" name="cate_name" required="" type="text">
-                                            </div>
-                                            <p class="help-block col-sm-4 red">* 必填</p>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="cate_ename" class="col-sm-2 control-label no-padding-right">分类英文名称</label>
-                                            <div class="col-sm-6">
-                                                <input class="form-control" id="cate_ename" placeholder="" name="cate_ename"  type="text">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="cate_pic" class="col-sm-2 control-label no-padding-right">缩略图</label>
-                                            <div class="col-sm-6">
-                                                <label for="cate_pic"></label>
-                                                <input type="file" id="cate_pic" name="cate_pic" >
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="cate_keywords" class="col-sm-2 control-label no-padding-right">分类关键字</label>
-                                            <div class="col-sm-6">
-                                                <input class="form-control" id="cate_keywords" placeholder="" name="cate_keywords" type="text">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="cate_desc" class="col-sm-2 control-label no-padding-right">分类描述</label>
-                                            <div class="col-sm-6">
-                                                <textarea class="form-control" rows="3" id="cate_desc" name="cate_desc" ></textarea>
-                                            </div>
-
-                                        </div>
-
-
-                                        <!-- radio 和checkbox 前面的按钮不显示，源文件中过滤了不显示，加入这一段就显示了 -->
-                                        <style type="text/css">
-                                            input[type="radio"] {
-                                                left: 25px;
-                                                opacity: 1;
-                                            }
-                                        </style>
-
-
-                                        <div class="form-group">
-                                            <label  class="col-sm-2 control-label no-padding-right">栏目类型</label>
-                                            <div class="col-sm-6">
-                                                <label class="radio-inline">
-                                                    <input type="radio" name="cate_type" id="inlineRadio1" value="0"> 封面
-                                                </label>
-                                                <label class="radio-inline">
-                                                    <input type="radio" name="cate_type" id="inlineRadio2" value="1"> 列表
-                                                </label>
-                                                <label class="radio-inline">
-                                                    <input type="radio" name="cate_type" id="inlineRadio3" value="2"> 产品
-                                                </label>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="form-group">
-                                            <label for="parentid" class="col-sm-2 control-label no-padding-right">上级栏目</label>
-                                            <div class="col-sm-6">
-                                                <select class="form-control" name="parentid" id="parentid">
-                                                    <option value="0">顶级分类</option>
-                                                    <?php if(is_array($categoryes)): $i = 0; $__LIST__ = $categoryes;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["cate_id"]); ?>"><?php echo str_repeat('------',$vo['level']); echo ($vo["cate_name"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
-                                                </select>
-                                            </div>
-                                        </div>
-
-
-
-                                        <div class="form-group">
-                                            <label for="content" class="col-sm-2 control-label no-padding-right">栏目内容</label>
-                                            <div class="col-sm-6">
-                                                <textarea name="cate_content" id="content" cols="60" rows="5"></textarea>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <div class="col-sm-offset-2 col-sm-10">
-                                                <button type="submit" class="btn btn-default">保存信息</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <!-- /Page Sidebar -->
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Page Breadcrumb -->
+                <div class="page-breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li><a href="#">系统</a></li>
+                        <li class="active">用户管理</li>
+                    </ul>
                 </div>
+                <!-- /Page Breadcrumb -->
 
+                <!-- Page Body -->
+                <div class="page-body">
+                    
+<button type="button" tooltip="添加链接" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '/chuangyi/index.php/Admin/Link/add'"> <i class="fa fa-plus"></i> 添加链接
+<button type="button" tooltip="批量删除" class="btn btn-sm btn-azure btn-addon" onClick="javascript:document.getElementById('myForm').submit()"> <i class="fa fa-plus"></i> 批量删除
+
+
+
+
+</button>
+<div class="row">
+    <div class="col-lg-12 col-sm-12 col-xs-12">
+        <div class="widget">
+            <div class="widget-body">
+                <div class="flip-scroll">
+                    <table class="table table-bordered table-hover">
+                        <thead class="">
+                            <tr>
+                                <th class="text-center" width="2%"></th>
+                                <th class="text-center">链接ID</th>
+                                <th class="text-center">链接标题</th>
+                                <th class="text-center">链接url</th>
+                                <th class="text-center">链接缩略图</th>
+                                <th class="text-center">链接详细</th>
+                                <th class="text-center">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        <form action="/chuangyi/index.php/Admin/Link/Adelete" method="post" id="myForm" >
+
+                        <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+                                <td align="center">
+                                    <input type="checkbox" name="id[]" value="<?php echo ($vo["li_id"]); ?>">
+                                </td>
+                                <td align="center"><?php echo ($vo["li_id"]); ?></td>
+                                <td align="center"><?php echo ($vo["li_title"]); ?></td>
+                                <td align="center"><a href="<?php echo ($vo["li_url"]); ?>" ><?php echo ($vo["li_url"]); ?></a></td>
+                                <td align="center">
+                                    <?php if($vo['li_pic'] != '' ): ?><img src="/chuangyi/<?php echo ($vo["li_pic"]); ?>" alt="">
+                                    <?php else: ?> 暂时没有图片<?php endif; ?>
+                                </td>
+                               <td align="center"><?php echo ($vo["li_des"]); ?></td>
+
+                                <td align="center">
+                                    <a href="/chuangyi/index.php/Admin/Link/edit/li_id/<?php echo ($vo["li_id"]); ?>" class="btn btn-primary btn-sm shiny">
+                                        <i class="fa fa-edit"></i> 编辑
+                                    </a>
+                                    <a href="#" onClick="warning('确实要删除吗', '/chuangyi/index.php/Admin/Link/delete/li_id/<?php echo ($vo["li_id"]); ?>')" class="btn btn-danger btn-sm shiny">
+                                        <i class="fa fa-trash-o"></i> 删除
+                                    </a>
+                                </td>
+                            </tr><?php endforeach; endif; else: echo "" ;endif; ?>
+
+                        </form>
+
+                        </tbody>
+
+                    </table>
+                    <?php echo ($page); ?>
+                </div>
+                <div>
+                	                </div>
             </div>
-            <!-- /Page Body -->
         </div>
-        <!-- /Page Content -->
     </div>
 </div>
-<script src="http://127.0.0.1/chuangyi/Public/ueditor/ueditor.config.js"></script>
-<script src="http://127.0.0.1/chuangyi/Public/ueditor/ueditor.all.min.js"></script>
-<script src="http://127.0.0.1/chuangyi/Public/ueditor/lang/zh-cn/zh-cn.js"></script>
-<script type="text/javascript">
-    UE.getEditor('content',{initialFrameWidth:800,initialFrameHeight:400,});
-</script>
+
+                </div>
+                <!-- /Page Body -->
+            </div>
+            <!-- /Page Content -->
+		</div>	
+	</div>
 
 
 <!--Basic Scripts-->

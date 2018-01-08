@@ -100,79 +100,77 @@
     <ul class="nav sidebar-menu">
         <!--Dashboard-->
         <li>
-            <a href="https://chuanke.baidu.com/s2260700.html" target="_blank">
+            <a href="/chuangyi/index.php/Admin/category/index" target="_blank">
                 <i class="menu-icon fa fa-film"></i>
-
-                            <span class="menu-text">
-                                ThinkPHP5视频教程                            </span>
-
+                <span class="menu-text">分类管理</span>
                 <i class="menu-expand"></i>
             </a>
         </li>
         <li>
-            <a href="/admin/main/index.html">
+            <a href="/chuangyi/index.php/Admin/article/index">
                 <i class="menu-icon fa fa-gear"></i>
-
-                            <span class="menu-text">
-                                控制面板                            </span>
-
+                <span class="menu-text">文章管理</span>
                 <i class="menu-expand"></i>
             </a>
         </li>
         <li>
-            <a href="#" class="menu-dropdown">
+            <a href="/chuangyi/index.php/Admin/link/index">
                 <i class="menu-icon fa fa-gear"></i>
-
-                            <span class="menu-text">
-                                文档                            </span>
-
+                <span class="menu-text">链接管理</span>
                 <i class="menu-expand"></i>
             </a>
-            <ul class="submenu">
-                <li>
-                    <a href="/admin/document/index.html">
-                                    <span class="menu-text">
-                                        文章列表                                    </span>
-                        <i class="menu-expand"></i>
-                    </a>
-                </li>
-
-            </ul>
         </li>
-        <li class="open">
-            <a href="#" class="menu-dropdown">
-                <i class="menu-icon fa fa-gear"></i>
+        <!--<li>-->
+            <!--<a href="#" class="menu-dropdown">-->
+                <!--<i class="menu-icon fa fa-gear"></i>-->
+                <!--<span class="menu-text">文档 </span>-->
+                <!--<i class="menu-expand"></i>-->
+            <!--</a>-->
+            <!--<ul class="submenu">-->
+                <!--<li>-->
+                    <!--<a href="/admin/document/index.html">-->
+                                    <!--<span class="menu-text">-->
+                                        <!--文章列表                                    </span>-->
+                        <!--<i class="menu-expand"></i>-->
+                    <!--</a>-->
+                <!--</li>-->
 
-                            <span class="menu-text">
-                                系统                            </span>
+            <!--</ul>-->
+        <!--</li>-->
+        <!--<li class="open">-->
+            <!--<a href="#" class="menu-dropdown">-->
+                <!--<i class="menu-icon fa fa-gear"></i>-->
 
-                <i class="menu-expand"></i>
-            </a>
-            <ul class="submenu">
-                <li class="active">
-                    <a href="/admin/user/index.html">
-                                    <span class="menu-text">
-                                        用户管理                                    </span>
-                        <i class="menu-expand"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="/admin/auth_group/index.html">
-                                    <span class="menu-text">
-                                        角色管理                                    </span>
-                        <i class="menu-expand"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="/admin/auth_rule/index.html">
-                                    <span class="menu-text">
-                                        权限列表                                    </span>
-                        <i class="menu-expand"></i>
-                    </a>
-                </li>
+                            <!--<span class="menu-text">-->
+                                <!--系统                            </span>-->
 
-            </ul>
-        </li>
+                <!--<i class="menu-expand"></i>-->
+            <!--</a>-->
+            <!--<ul class="submenu">-->
+                <!--<li class="active">-->
+                    <!--<a href="/admin/user/index.html">-->
+                                    <!--<span class="menu-text">-->
+                                        <!--用户管理                                    </span>-->
+                        <!--<i class="menu-expand"></i>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a href="/admin/auth_group/index.html">-->
+                                    <!--<span class="menu-text">-->
+                                        <!--角色管理                                    </span>-->
+                        <!--<i class="menu-expand"></i>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a href="/admin/auth_rule/index.html">-->
+                                    <!--<span class="menu-text">-->
+                                        <!--权限列表                                    </span>-->
+                        <!--<i class="menu-expand"></i>-->
+                    <!--</a>-->
+                <!--</li>-->
+
+            <!--</ul>-->
+        <!--</li>-->
 
     </ul>
     <!-- /Sidebar Menu -->
@@ -239,7 +237,7 @@
                                    <?php if($vo['ar_rem'] == 1 ): ?>推荐
                                        <?php else: ?> 不推荐<?php endif; ?>
                                </td>
-                               <td align="center"><?php echo ($vo["ar_cateid"]); ?></td>
+                               <td align="center"><?php echo ($vo["cate_name"]); ?></td>
 
                                 <td align="center">
                                     <a href="/chuangyi/index.php/Admin/Article/edit/ar_id/<?php echo ($vo["ar_id"]); ?>" class="btn btn-primary btn-sm shiny">
@@ -254,7 +252,9 @@
                         </form>
 
                         </tbody>
+
                     </table>
+                    <?php echo ($page); ?>
                 </div>
                 <div>
                 	                </div>

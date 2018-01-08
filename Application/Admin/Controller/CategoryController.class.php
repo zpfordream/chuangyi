@@ -112,9 +112,9 @@ class CategoryController extends Controller {
             if($category->create($data)){
                 $result = $category -> save();
                 if( $result !== false){
-                    $this->success('新的分类添加成功',U('index'),3);
+                    $this->success('分类修改成功',U('index'),3);
                 }else{
-                    $this->error('新的分类提交失败');
+                    $this->error('分类修改提交失败');
                 }
             }else{
                 $this->error($category->getError());

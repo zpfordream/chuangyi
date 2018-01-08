@@ -20,7 +20,7 @@
                 <!-- Page Body -->
                 <div class="page-body">
                     
-<button type="button" tooltip="添加用户" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '__CONTROLLER__/add'"> <i class="fa fa-plus"></i> 添加类别
+<button type="button" tooltip="添加链接" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '__CONTROLLER__/add'"> <i class="fa fa-plus"></i> 添加链接
 <button type="button" tooltip="批量删除" class="btn btn-sm btn-azure btn-addon" onClick="javascript:document.getElementById('myForm').submit()"> <i class="fa fa-plus"></i> 批量删除
 
 
@@ -36,12 +36,11 @@
                         <thead class="">
                             <tr>
                                 <th class="text-center" width="2%"></th>
-                                <th class="text-center">ID</th>
-                                <th class="text-center">父类ID</th>
-                                <th class="text-center">分类名称</th>
-                                <th class="text-center">分类英文名称</th>
-                                <th class="text-center">分类缩略图</th>
-                                <th class="text-center">栏目类型</th>
+                                <th class="text-center">链接ID</th>
+                                <th class="text-center">链接标题</th>
+                                <th class="text-center">链接url</th>
+                                <th class="text-center">链接缩略图</th>
+                                <th class="text-center">链接详细</th>
                                 <th class="text-center">操作</th>
                             </tr>
                         </thead>
@@ -49,43 +48,38 @@
 
                         <form action="__CONTROLLER__/Adelete" method="post" id="myForm" >
 
-                        <volist name="categoryes" id="vo">
+                        <volist name="list" id="vo">
                            <tr>
-
                                 <td align="center">
-                                    <input type="checkbox" name="id[]" value="{$vo.cate_id}">
+                                    <input type="checkbox" name="id[]" value="{$vo.li_id}">
                                 </td>
-                                <td align="center">{$vo.cate_id}</td>
-                                <td align="center">{$vo.parentid}</td>
-                                <td align="left"><?php echo str_repeat('------',$vo['level']); ?>{$vo.cate_name}</td>
-                                <td align="center">{$vo.cate_ename}</td>
+                                <td align="center">{$vo.li_id}</td>
+                                <td align="center">{$vo.li_title}</td>
+                                <td align="center"><a href="{$vo.li_url}" >{$vo.li_url}</a></td>
                                 <td align="center">
-                                    <if condition="$vo['cate_pic'] neq '' "> <img src="__ROOT__/{$vo.cate_pic}" alt="">
+                                    <if condition="$vo['li_pic'] neq '' "> <img src="__ROOT__/{$vo.li_pic}" alt="">
                                     <else /> 暂时没有图片
                                     </if>
+                                </td>
+                               <td align="center">{$vo.li_des}</td>
 
-                                </td>
                                 <td align="center">
-                                    <if condition="$vo['cate_type'] eq 0 "> 封面
-                                        <elseif condition="$vo['cate_type'] eq 1 "/>列表
-                                        <else /> 产品
-                                    </if>
-                                </td>
-                                <td align="center">
-                                    <a href="__CONTROLLER__/edit/cate_id/{$vo.cate_id}" class="btn btn-primary btn-sm shiny">
+                                    <a href="__CONTROLLER__/edit/li_id/{$vo.li_id}" class="btn btn-primary btn-sm shiny">
                                         <i class="fa fa-edit"></i> 编辑
                                     </a>
-                                    <a href="#" onClick="warning('确实要删除吗', '__CONTROLLER__/delete/cate_id/{$vo.cate_id}')" class="btn btn-danger btn-sm shiny">
+                                    <a href="#" onClick="warning('确实要删除吗', '__CONTROLLER__/delete/li_id/{$vo.li_id}')" class="btn btn-danger btn-sm shiny">
                                         <i class="fa fa-trash-o"></i> 删除
                                     </a>
                                 </td>
                             </tr>
                         </volist>
-                            {$page}
+
                         </form>
 
                         </tbody>
+
                     </table>
+                    {$page}
                 </div>
                 <div>
                 	                </div>

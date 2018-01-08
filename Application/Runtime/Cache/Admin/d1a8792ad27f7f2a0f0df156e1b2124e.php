@@ -189,7 +189,7 @@
                     <li>
                         <a href="#">用户管理</a>
                     </li>
-                    <li class="active">添加分类</li>
+                    <li class="active">添加链接</li>
                 </ul>
             </div>
             <!-- /Page Breadcrumb -->
@@ -201,7 +201,7 @@
                     <div class="col-lg-12 col-sm-12 col-xs-12">
                         <div class="widget">
                             <div class="widget-header bordered-bottom bordered-blue">
-                                <span class="widget-caption">新增类别</span>
+                                <span class="widget-caption">新增链接</span>
                             </div>
                             <div class="widget-body">
                                 <div id="horizontal-form">
@@ -209,85 +209,32 @@
                                     <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
 
                                         <div class="form-group">
-                                            <label for="cate_name" class="col-sm-2 control-label no-padding-right">分类名称</label>
+                                            <label for="li_title" class="col-sm-2 control-label no-padding-right">链接标题</label>
                                             <div class="col-sm-6">
-                                                <input class="form-control" id="cate_name" placeholder="" name="cate_name" required="" type="text">
+                                                <input class="form-control" id="li_title" placeholder="" name="li_title" required="" type="text">
                                             </div>
                                             <p class="help-block col-sm-4 red">* 必填</p>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="cate_ename" class="col-sm-2 control-label no-padding-right">分类英文名称</label>
+                                            <label for="li_url" class="col-sm-2 control-label no-padding-right">链接url</label>
                                             <div class="col-sm-6">
-                                                <input class="form-control" id="cate_ename" placeholder="" name="cate_ename"  type="text">
+                                                <input class="form-control" id="li_url" placeholder="" name="li_url"  type="text">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="cate_pic" class="col-sm-2 control-label no-padding-right">缩略图</label>
+                                            <label for="li_pic" class="col-sm-2 control-label no-padding-right">链接图片</label>
                                             <div class="col-sm-6">
-                                                <label for="cate_pic"></label>
-                                                <input type="file" id="cate_pic" name="cate_pic" >
+                                                <label for="li_pic"></label>
+                                                <input type="file" id="li_pic" name="li_pic" >
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="cate_keywords" class="col-sm-2 control-label no-padding-right">分类关键字</label>
+                                            <label for="li_des" class="col-sm-2 control-label no-padding-right">文章内容</label>
                                             <div class="col-sm-6">
-                                                <input class="form-control" id="cate_keywords" placeholder="" name="cate_keywords" type="text">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="cate_desc" class="col-sm-2 control-label no-padding-right">分类描述</label>
-                                            <div class="col-sm-6">
-                                                <textarea class="form-control" rows="3" id="cate_desc" name="cate_desc" ></textarea>
-                                            </div>
-
-                                        </div>
-
-
-                                        <!-- radio 和checkbox 前面的按钮不显示，源文件中过滤了不显示，加入这一段就显示了 -->
-                                        <style type="text/css">
-                                            input[type="radio"] {
-                                                left: 25px;
-                                                opacity: 1;
-                                            }
-                                        </style>
-
-
-                                        <div class="form-group">
-                                            <label  class="col-sm-2 control-label no-padding-right">栏目类型</label>
-                                            <div class="col-sm-6">
-                                                <label class="radio-inline">
-                                                    <input type="radio" name="cate_type" id="inlineRadio1" value="0"> 封面
-                                                </label>
-                                                <label class="radio-inline">
-                                                    <input type="radio" name="cate_type" id="inlineRadio2" value="1"> 列表
-                                                </label>
-                                                <label class="radio-inline">
-                                                    <input type="radio" name="cate_type" id="inlineRadio3" value="2"> 产品
-                                                </label>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="form-group">
-                                            <label for="parentid" class="col-sm-2 control-label no-padding-right">上级栏目</label>
-                                            <div class="col-sm-6">
-                                                <select class="form-control" name="parentid" id="parentid">
-                                                    <option value="0">顶级分类</option>
-                                                    <?php if(is_array($categoryes)): $i = 0; $__LIST__ = $categoryes;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["cate_id"]); ?>"><?php echo str_repeat('------',$vo['level']); echo ($vo["cate_name"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
-                                                </select>
-                                            </div>
-                                        </div>
-
-
-
-                                        <div class="form-group">
-                                            <label for="content" class="col-sm-2 control-label no-padding-right">栏目内容</label>
-                                            <div class="col-sm-6">
-                                                <textarea name="cate_content" id="content" cols="60" rows="5"></textarea>
+                                                <textarea name="li_des" id="li_des" cols="60" rows="5"></textarea>
                                             </div>
                                         </div>
 
