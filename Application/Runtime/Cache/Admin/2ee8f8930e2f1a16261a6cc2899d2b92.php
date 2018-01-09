@@ -198,7 +198,7 @@
                 <div class="page-breadcrumbs">
                     <ul class="breadcrumb">
                         <li><a href="#">系统</a></li>
-                        <li class="active">用户管理</li>
+                        <li class="active">网站配置列表</li>
                     </ul>
                 </div>
                 <!-- /Page Breadcrumb -->
@@ -206,7 +206,7 @@
                 <!-- Page Body -->
                 <div class="page-body">
                     
-<button type="button" tooltip="添加文章" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '/chuangyi/index.php/Admin/Article/add'"> <i class="fa fa-plus"></i> 添加文章
+<button type="button" tooltip="添加配置" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '/chuangyi/index.php/Admin/Conf/add'"> <i class="fa fa-plus"></i> 添加配置
 <button type="button" tooltip="批量删除" class="btn btn-sm btn-azure btn-addon" onClick="javascript:document.getElementById('myForm').submit()"> <i class="fa fa-plus"></i> 批量删除
 
 
@@ -222,42 +222,35 @@
                         <thead class="">
                             <tr>
                                 <th class="text-center" width="2%"></th>
-                                <th class="text-center">文章ID</th>
-                                <th class="text-center">文章标题</th>
-                                <th class="text-center">作者</th>
-                                <th class="text-center">文章缩略图</th>
-                                <th class="text-center">文章推荐</th>
-                                <th class="text-center">文章分类</th>
+                                <th class="text-center">配置ID</th>
+                                <th class="text-center">配置名称</th>
+                                <th class="text-center">英文名称</th>
+                                <th class="text-center">配置类型</th>
+                                <th class="text-center">可选值</th>
+                                <th class="text-center">默认值</th>
                                 <th class="text-center">操作</th>
                             </tr>
                         </thead>
                         <tbody>
 
-                        <form action="/chuangyi/index.php/Admin/Article/Adelete" method="post" id="myForm" >
+                        <form action="/chuangyi/index.php/Admin/Conf/Adelete" method="post" id="myForm" >
 
                         <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
                                 <td align="center">
-                                    <input type="checkbox" name="id[]" value="<?php echo ($vo["ar_id"]); ?>">
+                                    <input type="checkbox" name="id[]" value="<?php echo ($vo["cf_id"]); ?>">
                                 </td>
-                                <td align="center"><?php echo ($vo["ar_id"]); ?></td>
-                                <td align="center"><?php echo ($vo["ar_title"]); ?></td>
-                                <td align="center"><?php echo ($vo["ar_author"]); ?></td>
-                                <td align="center">
-                                    <?php if($vo['ar_pic'] != '' ): ?><img src="/chuangyi/<?php echo ($vo["ar_pic"]); ?>" alt="">
-                                    <?php else: ?> 暂时没有图片<?php endif; ?>
-
-                                </td>
-                               <td align="center">
-                                   <?php if($vo['ar_rem'] == 1 ): ?>推荐
-                                       <?php else: ?> 不推荐<?php endif; ?>
-                               </td>
-                               <td align="center"><?php echo ($vo["cate_name"]); ?></td>
+                                <td align="center"><?php echo ($vo["cf_id"]); ?></td>
+                                <td align="center"><?php echo ($vo["cf_name"]); ?></td>
+                                <td align="center"><?php echo ($vo["cf_ename"]); ?></td>
+                               <td align="center"><?php echo ($vo["cf_type"]); ?></td>
+                               <td align="center"><?php echo ($vo["cf_values"]); ?></td>
+                               <td align="center"><?php echo ($vo["cf_value"]); ?></td>
 
                                 <td align="center">
-                                    <a href="/chuangyi/index.php/Admin/Article/edit/ar_id/<?php echo ($vo["ar_id"]); ?>" class="btn btn-primary btn-sm shiny">
+                                    <a href="/chuangyi/index.php/Admin/Conf/edit/cf_id/<?php echo ($vo["cf_id"]); ?>" class="btn btn-primary btn-sm shiny">
                                         <i class="fa fa-edit"></i> 编辑
                                     </a>
-                                    <a href="#" onClick="warning('确实要删除吗', '/chuangyi/index.php/Admin/Article/delete/ar_id/<?php echo ($vo["ar_id"]); ?>')" class="btn btn-danger btn-sm shiny">
+                                    <a href="#" onClick="warning('确实要删除吗', '/chuangyi/index.php/Admin/Conf/delete/cf_id/<?php echo ($vo["cf_id"]); ?>')" class="btn btn-danger btn-sm shiny">
                                         <i class="fa fa-trash-o"></i> 删除
                                     </a>
                                 </td>

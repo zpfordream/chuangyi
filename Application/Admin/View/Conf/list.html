@@ -1,0 +1,95 @@
+
+	<div class="main-container container-fluid">
+		<div class="page-container">
+            <!-- Page Sidebar -->
+
+            <include file="Public:left" />
+
+            <!-- /Page Sidebar -->
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Page Breadcrumb -->
+                <div class="page-breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li><a href="#">系统</a></li>
+                        <li class="active">网站配置列表</li>
+                    </ul>
+                </div>
+                <!-- /Page Breadcrumb -->
+
+                <!-- Page Body -->
+                <div class="page-body">
+                    
+<button type="button" tooltip="添加配置" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '__CONTROLLER__/add'"> <i class="fa fa-plus"></i> 添加配置
+<button type="button" tooltip="批量删除" class="btn btn-sm btn-azure btn-addon" onClick="javascript:document.getElementById('myForm').submit()"> <i class="fa fa-plus"></i> 批量删除
+
+
+
+
+</button>
+<div class="row">
+    <div class="col-lg-12 col-sm-12 col-xs-12">
+        <div class="widget">
+            <div class="widget-body">
+                <div class="flip-scroll">
+                    <table class="table table-bordered table-hover">
+                        <thead class="">
+                            <tr>
+                                <th class="text-center" width="2%"></th>
+                                <th class="text-center">配置ID</th>
+                                <th class="text-center">配置名称</th>
+                                <th class="text-center">英文名称</th>
+                                <th class="text-center">配置类型</th>
+                                <th class="text-center">可选值</th>
+                                <th class="text-center">默认值</th>
+                                <th class="text-center">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        <form action="__CONTROLLER__/Adelete" method="post" id="myForm" >
+
+                        <volist name="list" id="vo">
+                           <tr>
+                                <td align="center">
+                                    <input type="checkbox" name="id[]" value="{$vo.cf_id}">
+                                </td>
+                                <td align="center">{$vo.cf_id}</td>
+                                <td align="center">{$vo.cf_name}</td>
+                                <td align="center">{$vo.cf_ename}</td>
+                               <td align="center">{$vo.cf_type}</td>
+                               <td align="center">{$vo.cf_values}</td>
+                               <td align="center">{$vo.cf_value}</td>
+
+                                <td align="center">
+                                    <a href="__CONTROLLER__/edit/cf_id/{$vo.cf_id}" class="btn btn-primary btn-sm shiny">
+                                        <i class="fa fa-edit"></i> 编辑
+                                    </a>
+                                    <a href="#" onClick="warning('确实要删除吗', '__CONTROLLER__/delete/cf_id/{$vo.cf_id}')" class="btn btn-danger btn-sm shiny">
+                                        <i class="fa fa-trash-o"></i> 删除
+                                    </a>
+                                </td>
+                            </tr>
+                        </volist>
+
+                        </form>
+
+                        </tbody>
+
+                    </table>
+                    {$page}
+                </div>
+                <div>
+                	                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                </div>
+                <!-- /Page Body -->
+            </div>
+            <!-- /Page Content -->
+		</div>	
+	</div>
+

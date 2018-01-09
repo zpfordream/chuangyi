@@ -83,11 +83,11 @@
 
 <!-- /头部 -->
 
-	<div class="main-container container-fluid">
-		<div class="page-container">
-            <!-- Page Sidebar -->
+<div class="main-container container-fluid">
+    <div class="page-container">
+        <!-- Page Sidebar -->
 
-            <!-- Page Sidebar -->
+        <!-- Page Sidebar -->
 <div class="page-sidebar" id="sidebar">
     <!-- Page Sidebar Header-->
     <div class="sidebar-header-wrapper">
@@ -117,20 +117,6 @@
             <a href="/chuangyi/index.php/Admin/link/index">
                 <i class="menu-icon fa fa-gear"></i>
                 <span class="menu-text">链接管理</span>
-                <i class="menu-expand"></i>
-            </a>
-        </li>
-        <li>
-            <a href="/chuangyi/index.php/Admin/Conf/index">
-                <i class="menu-icon fa fa-gear"></i>
-                <span class="menu-text">网站配置列表</span>
-                <i class="menu-expand"></i>
-            </a>
-        </li>
-        <li>
-            <a href="/chuangyi/index.php/Admin/link/index">
-                <i class="menu-icon fa fa-gear"></i>
-                <span class="menu-text">网站配置</span>
                 <i class="menu-expand"></i>
             </a>
         </li>
@@ -191,98 +177,114 @@
 </div>
 <!-- /Page Sidebar -->
 
-            <!-- /Page Sidebar -->
-            <!-- Page Content -->
-            <div class="page-content">
-                <!-- Page Breadcrumb -->
-                <div class="page-breadcrumbs">
-                    <ul class="breadcrumb">
-                        <li><a href="#">系统</a></li>
-                        <li class="active">用户管理</li>
-                    </ul>
-                </div>
-                <!-- /Page Breadcrumb -->
-
-                <!-- Page Body -->
-                <div class="page-body">
-                    
-<button type="button" tooltip="添加文章" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '/chuangyi/index.php/Admin/Article/add'"> <i class="fa fa-plus"></i> 添加文章
-<button type="button" tooltip="批量删除" class="btn btn-sm btn-azure btn-addon" onClick="javascript:document.getElementById('myForm').submit()"> <i class="fa fa-plus"></i> 批量删除
-
-
-
-
-</button>
-<div class="row">
-    <div class="col-lg-12 col-sm-12 col-xs-12">
-        <div class="widget">
-            <div class="widget-body">
-                <div class="flip-scroll">
-                    <table class="table table-bordered table-hover">
-                        <thead class="">
-                            <tr>
-                                <th class="text-center" width="2%"></th>
-                                <th class="text-center">文章ID</th>
-                                <th class="text-center">文章标题</th>
-                                <th class="text-center">作者</th>
-                                <th class="text-center">文章缩略图</th>
-                                <th class="text-center">文章推荐</th>
-                                <th class="text-center">文章分类</th>
-                                <th class="text-center">操作</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                        <form action="/chuangyi/index.php/Admin/Article/Adelete" method="post" id="myForm" >
-
-                        <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
-                                <td align="center">
-                                    <input type="checkbox" name="id[]" value="<?php echo ($vo["ar_id"]); ?>">
-                                </td>
-                                <td align="center"><?php echo ($vo["ar_id"]); ?></td>
-                                <td align="center"><?php echo ($vo["ar_title"]); ?></td>
-                                <td align="center"><?php echo ($vo["ar_author"]); ?></td>
-                                <td align="center">
-                                    <?php if($vo['ar_pic'] != '' ): ?><img src="/chuangyi/<?php echo ($vo["ar_pic"]); ?>" alt="">
-                                    <?php else: ?> 暂时没有图片<?php endif; ?>
-
-                                </td>
-                               <td align="center">
-                                   <?php if($vo['ar_rem'] == 1 ): ?>推荐
-                                       <?php else: ?> 不推荐<?php endif; ?>
-                               </td>
-                               <td align="center"><?php echo ($vo["cate_name"]); ?></td>
-
-                                <td align="center">
-                                    <a href="/chuangyi/index.php/Admin/Article/edit/ar_id/<?php echo ($vo["ar_id"]); ?>" class="btn btn-primary btn-sm shiny">
-                                        <i class="fa fa-edit"></i> 编辑
-                                    </a>
-                                    <a href="#" onClick="warning('确实要删除吗', '/chuangyi/index.php/Admin/Article/delete/ar_id/<?php echo ($vo["ar_id"]); ?>')" class="btn btn-danger btn-sm shiny">
-                                        <i class="fa fa-trash-o"></i> 删除
-                                    </a>
-                                </td>
-                            </tr><?php endforeach; endif; else: echo "" ;endif; ?>
-
-                        </form>
-
-                        </tbody>
-
-                    </table>
-                    <?php echo ($page); ?>
-                </div>
-                <div>
-                	                </div>
+        <!-- /Page Sidebar -->
+        <!-- Page Content -->
+        <div class="page-content">
+            <!-- Page Breadcrumb -->
+            <div class="page-breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="#">系统</a>
+                    </li>
+                    <li>
+                        <a href="#">用户管理</a>
+                    </li>
+                    <li class="active">添加配置</li>
+                </ul>
             </div>
+            <!-- /Page Breadcrumb -->
+
+            <!-- Page Body -->
+            <div class="page-body">
+
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12 col-xs-12">
+                        <div class="widget">
+                            <div class="widget-header bordered-bottom bordered-blue">
+                                <span class="widget-caption">新增配置</span>
+                            </div>
+                            <div class="widget-body">
+                                <div id="horizontal-form">
+
+                                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+
+                                        <div class="form-group">
+                                            <label for="cf_name" class="col-sm-2 control-label no-padding-right">配置名称</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control" id="cf_name" placeholder="" name="cf_name" required="" type="text">
+                                            </div>
+                                            <p class="help-block col-sm-4 red">* 必填</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="cf_ename" class="col-sm-2 control-label no-padding-right">配置英文名称</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control" id="cf_ename" placeholder="" name="cf_ename"  type="text">
+                                            </div>
+                                        </div>
+
+                                        <!-- radio 和checkbox 前面的按钮不显示，源文件中过滤了不显示，加入这一段就显示了 -->
+                                        <style type="text/css">
+                                            input[type="radio"] {
+                                                left: 25px;
+                                                opacity: 1;
+                                            }
+                                        </style>
+
+                                        <div class="form-group">
+                                            <label  class="col-sm-2 control-label no-padding-right">栏目类型</label>
+                                            <div class="col-sm-6">
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="cf_type" id="inlineRadio1" value="text" check="checked"> 单行文本
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="cf_type" id="inlineRadio2" value="radio"> 单选按钮
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="cf_type" id="inlineRadio3" value="textarea"> 多行文本
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="cf_value" class="col-sm-2 control-label no-padding-right">可选值</label>
+                                            <div class="col-sm-6">
+                                                <textarea name="cf_value" id="cf_values" cols="60" rows="5"></textarea>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label for="cf_values" class="col-sm-2 control-label no-padding-right">默认值</label>
+                                            <div class="col-sm-6">
+                                                <textarea name="cf_values" id="cf_value" cols="60" rows="5"></textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-10">
+                                                <button type="submit" class="btn btn-default">保存信息</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /Page Body -->
         </div>
+        <!-- /Page Content -->
     </div>
 </div>
-
-                </div>
-                <!-- /Page Body -->
-            </div>
-            <!-- /Page Content -->
-		</div>	
-	</div>
+<script src="http://127.0.0.1/chuangyi/Public/ueditor/ueditor.config.js"></script>
+<script src="http://127.0.0.1/chuangyi/Public/ueditor/ueditor.all.min.js"></script>
+<script src="http://127.0.0.1/chuangyi/Public/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript">
+    UE.getEditor('content',{initialFrameWidth:800,initialFrameHeight:400,});
+</script>
 
 
 <!--Basic Scripts-->
