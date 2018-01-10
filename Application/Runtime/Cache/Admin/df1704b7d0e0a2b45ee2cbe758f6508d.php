@@ -123,14 +123,14 @@
         <li>
             <a href="/chuangyi/index.php/Admin/Conf/index">
                 <i class="menu-icon fa fa-gear"></i>
-                <span class="menu-text">网站配置列表</span>
+                <span class="menu-text">配置管理</span>
                 <i class="menu-expand"></i>
             </a>
         </li>
         <li>
-            <a href="/chuangyi/index.php/Admin/link/index">
+            <a href="/chuangyi/index.php/Admin/Conf/conflst">
                 <i class="menu-icon fa fa-gear"></i>
-                <span class="menu-text">网站配置</span>
+                <span class="menu-text">网站配置列表</span>
                 <i class="menu-expand"></i>
             </a>
         </li>
