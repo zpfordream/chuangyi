@@ -115,10 +115,15 @@ class ConfController extends Controller {
 
     public function conflst(){
 
-        $conf = D('Common/Conf');
-        $confes = $conf->select();
-        $this->assign('confes',$confes);
-        $this->display();
+        if(IS_POST){
+            pri($_POST);
+
+        }else{
+            $conf = D('Common/Conf');
+            $confes = $conf->select();
+            $this->assign('confes',$confes);
+            $this->display();
+        }
     }
 
 }

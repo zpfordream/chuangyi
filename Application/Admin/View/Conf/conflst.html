@@ -34,29 +34,33 @@
                             </tr>
                         </thead>
                         <tbody>
-
+                        <form action="" method="post">
                         <volist name="confes" id="vo">
                            <tr>
                                 <td align="right">{$vo.cf_name}</td>
                                 <td align="left">
 
-                                    <if condition="$vo['cf_type'] eq 'text' ">  <input type="text" name="" id="" value="{$vo.cf_value}">
-                                    <elseif condition="$vo['cf_type'] eq 'textarea' "/> <textarea name="" id="" cols="30" rows="10">{$vo.cf_value}</textarea>
+                                    <if condition="$vo['cf_type'] eq 'text' ">  <input type="text" name="{$vo.cf_ename}" id="" value="{$vo.cf_value}">
+                                    <elseif condition="$vo['cf_type'] eq 'textarea' "/> <textarea name="{$vo.cf_ename}" id="" cols="30" rows="10">{$vo.cf_value}</textarea>
                                     <else />
                                         <?php $arr = explode(',',$vo['cf_values']); ?>
-                                        <?php foreach($arr as $k =>$v ){ ?>
-                                        <?php echo " <input type='radio'  value='{$vo.cf_value}'>" ?>
-                                        <?php } ?>
+                                        <?php foreach($arr as $v ){ ?>
+                                            <?php if( $vo['cf_value'] == $v){ ?>
+                                                <?php echo " <input type='radio'  value='' name='".$vo[cf_ename]."'  checked >  $v "  ; ?>
+                                            <?php }else{  ?>
+                                                <?php echo " <input type='radio'  value='' name='".$vo[cf_ename]."' >  $v "   ; ?>
+                                     <?php } } ?>
                                     </if>
 
                                 </td>
                             </tr>
                         </volist>
-
+                            <input type="submit" value="保存信息" width="30px" height="30px">
+                        </form>
                         </tbody>
 
                     </table>
-                    {$page}
+
                 </div>
                 <div>
                 	                </div>

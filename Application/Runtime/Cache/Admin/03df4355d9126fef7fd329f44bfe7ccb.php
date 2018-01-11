@@ -220,26 +220,30 @@
                             </tr>
                         </thead>
                         <tbody>
-
+                        <form action="" method="post">
                         <?php if(is_array($confes)): $i = 0; $__LIST__ = $confes;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
                                 <td align="right"><?php echo ($vo["cf_name"]); ?></td>
                                 <td align="left">
 
-                                    <?php if($vo['cf_type'] == 'text' ): ?><input type="text" name="" id="" value="<?php echo ($vo["cf_value"]); ?>">
-                                    <?php elseif($vo['cf_type'] == 'textarea' ): ?> <textarea name="" id="" cols="30" rows="10"><?php echo ($vo["cf_value"]); ?></textarea>
+                                    <?php if($vo['cf_type'] == 'text' ): ?><input type="text" name="<?php echo ($vo["cf_ename"]); ?>" id="" value="<?php echo ($vo["cf_value"]); ?>">
+                                    <?php elseif($vo['cf_type'] == 'textarea' ): ?> <textarea name="<?php echo ($vo["cf_ename"]); ?>" id="" cols="30" rows="10"><?php echo ($vo["cf_value"]); ?></textarea>
                                     <?php else: ?>
                                         <?php $arr = explode(',',$vo['cf_values']); ?>
-                                        <?php foreach($arr as $k =>$v ){ ?>
-                                        <?php echo " <input type='radio'  value='<?php echo ($vo["cf_value"]); ?>'>" ?>
-                                        <?php } endif; ?>
+                                        <?php foreach($arr as $v ){ ?>
+                                            <?php if( $vo['cf_value'] == $v){ ?>
+                                                <?php echo " <input type='radio'  value='' name='".$vo[cf_ename]."'  checked >  $v " ; ?>
+                                            <?php }else{ ?>
+                                                <?php echo " <input type='radio'  value='' name='".$vo[cf_ename]."' >  $v " ; ?>
+                                     <?php } } endif; ?>
 
                                 </td>
                             </tr><?php endforeach; endif; else: echo "" ;endif; ?>
-
+                            <input type="submit" value="保存信息" width="30px" height="30px">
+                        </form>
                         </tbody>
 
                     </table>
-                    <?php echo ($page); ?>
+
                 </div>
                 <div>
                 	                </div>
