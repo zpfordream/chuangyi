@@ -102,4 +102,22 @@ class CategoryModel extends Model {
             }
         }
     }
+
+
+    //用在前台的面包屑，找父类的id和名称，都放在二维数组里
+    public function  getParent($cateid){
+
+        $res = array();
+        while($cateid){
+            $where['cate_id'] = $cateid;
+            $cates = $this->where($where)->find();
+
+            $res[]  =  array(
+                'cate_id' => $cates['cate_id'],
+                'cate_name' => $cates['cate_name'],
+            ) ;
+            $cateid = $cates['parentid'];
+        }
+        return  array_reverse($res);
+    }
 }

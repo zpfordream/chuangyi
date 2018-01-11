@@ -1,8 +1,9 @@
 <?php
 namespace Home\Controller;
 use Think\Controller;
-class LstController extends Controller {
+class ListController extends BaseController {
     public function index(){
+
         $this->display();
     }
 }

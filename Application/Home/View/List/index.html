@@ -24,7 +24,10 @@
         <div class="right">
             <h1>
                 <div class="page">
-                    <a href='http://www.cy.com/'>网站首页</a> > <a href='/plus/list.php?tid=2'>最新动态</a>><a>公司新闻</a>
+                    <a href='__MODULE__/index/index'>网站首页</a>>
+                    <volist name="res" id="vo">
+                     <a href='/plus/list.php?tid=2'>{$vo.cate_name}</a>    <if condition="$i neq count($res) ">></if>
+                    </volist>
                 </div>
                 公司新闻
             </h1>
@@ -196,51 +199,5 @@
         <div class="clr"></div>
     </div>
 </div>
-<div id="footer">
-    <div class="layout footer">
-        <div class="footer-info">
-            <p>Copyright &copy; 2015  Chengdu  origissay  Diagnostics,LTD     技术支持：博海天韵 <a href=http://www.dedecms.com target='_blank'></a>  蜀ICP12007941 </p>
-        </div>
-        <div class="footer-nav">
-            <ul>
-
-                <li>
-                    <a href='/plus/list.php?tid=1'>
-                        关于创宜
-                    </a></li>
-
-                <li>
-                    <a href='/plus/list.php?tid=2'>
-                        最新动态
-                    </a></li>
-
-                <li>
-                    <a href='/plus/list.php?tid=3'>
-                        产品介绍
-                    </a></li>
-
-                <li>
-                    <a href='/plus/list.php?tid=4'>
-                        企业风采
-                    </a></li>
-
-                <li>
-                    <a href='/plus/list.php?tid=5'>
-                        诚聘英才
-                    </a></li>
-
-                <li>
-                    <a href='/plus/list.php?tid=6'>
-                        联系我们
-                    </a></li>
-
-
-            </ul>
-        </div>
-
-        <div class="clr"></div>
-    </div>
-</div>
-
 
 <include file="Common:footer" />

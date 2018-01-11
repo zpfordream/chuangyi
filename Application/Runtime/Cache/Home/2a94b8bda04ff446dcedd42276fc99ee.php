@@ -26,90 +26,25 @@
         <div id="nav">
             <div class="nav">
                 <ul>
-                    <li><a href="/" class="header foucs">
+                    <li>
+                        <a href="/" class="header foucs">
                         <p>网站首页</p>
                         <p class="en">Home</p>
-                    </a>
+                        </a>
                     </li>
-                    <li class="mnav"><a href="/plus/list.php?tid=1" class=''><p>关于创宜</p><p class='en'>About us</p></a>
+
+                    <?php if(is_array($categoryes)): $i = 0; $__LIST__ = $categoryes;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li class="mnav">
+                        <!--这里的判断，根据后台给的如果是列表，就进入列表页；如果是封面页，就进入封面页-->
+                        <a href="/chuangyi/index.php/Home/<?php if($vo[cate_type] == 1): ?>List<?php else: ?>Page<?php endif; ?>/index/cate_id/<?php echo ($vo["cate_id"]); ?> " class=''><p><?php echo ($vo["cate_name"]); ?></p><p class='en'><?php echo ($vo["cate_ename"]); ?></p></a>
                         <ul class="smenu">
 
-                            <li>
-                                <a href="/plus/list.php?tid=11">创宜简介</a>
-                            </li>
+                            <?php $_result=getsub($vo['cate_id']);if(is_array($_result)): $i = 0; $__LIST__ = $_result;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vv): $mod = ($i % 2 );++$i;?><li>
+                                <a href="/chuangyi/index.php/Home/<?php if($vv[cate_type] == 1): ?>List<?php else: ?>Page<?php endif; ?>/index/cate_id/<?php echo ($vv["cate_id"]); ?>"><?php echo ($vv["cate_name"]); ?></a>
+                            </li><?php endforeach; endif; else: echo "" ;endif; ?>
 
-                            <li>
-                                <a href="/plus/list.php?tid=12">创宜文化</a>
-                            </li>
+                        </ul>
+                    </li><?php endforeach; endif; else: echo "" ;endif; ?>
 
-                            <li>
-                                <a href="/plus/list.php?tid=13">创宜视频</a>
-                            </li>
-
-                        </ul><li class="mnav"><a href="/plus/list.php?tid=2" class=''><p>最新动态</p><p class='en'>News</p></a>
-                    <ul class="smenu">
-
-                        <li>
-                            <a href="/plus/list.php?tid=8">公司新闻</a>
-                        </li>
-
-                        <li>
-                            <a href="/plus/list.php?tid=9">国际交流</a>
-                        </li>
-
-                        <li>
-                            <a href="/plus/list.php?tid=10">行业资讯</a>
-                        </li>
-
-                    </ul><li class="mnav"><a href="/plus/list.php?tid=3" class=''><p>产品介绍</p><p class='en'>Product</p></a>
-                    <ul class="smenu">
-
-                        <li>
-                            <a href="/plus/list.php?tid=18">育宜康</a>
-                        </li>
-
-                        <li>
-                            <a href="/plus/list.php?tid=24">安宜康</a>
-                        </li>
-
-                    </ul><li class="mnav"><a href="/plus/list.php?tid=4" class=''><p>企业风采</p><p class='en'>Company style</p></a>
-                    <ul class="smenu">
-
-                        <li>
-                            <a href="/plus/list.php?tid=19">创宜访谈</a>
-                        </li>
-
-                        <li>
-                            <a href="/plus/list.php?tid=21">创宜资质</a>
-                        </li>
-
-                        <li>
-                            <a href="/plus/list.php?tid=23">创宜讲座</a>
-                        </li>
-
-                    </ul><li class="mnav"><a href="/plus/list.php?tid=5" class=''><p>诚聘英才</p><p class='en'>Career</p></a>
-                    <ul class="smenu">
-
-                        <li>
-                            <a href="/plus/list.php?tid=17">销售部区域经理</a>
-                        </li>
-
-                        <li>
-                            <a href="/plus/list.php?tid=20">业务主管</a>
-                        </li>
-
-                    </ul><li class="mnav"><a href="/plus/list.php?tid=6" class=''><p>联系我们</p><p class='en'>Contact us</p></a>
-                    <ul class="smenu">
-
-                        <li>
-                            <a href="/plus/list.php?tid=15">联系方式</a>
-                        </li>
-
-                        <li>
-                            <a href="/plus/list.php?tid=16">在线留言</a>
-                        </li>
-
-                    </ul>
                 </ul>
             </div>
         </div>

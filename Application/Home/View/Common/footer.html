@@ -7,35 +7,13 @@
         <div class="footer-nav">
             <ul>
 
+                <volist name="categoryes" id="vo">
                 <li>
-                    <a href='/plus/list.php?tid=1'>
-                        关于创宜
-                    </a></li>
-
-                <li>
-                    <a href='/plus/list.php?tid=2'>
-                        最新动态
-                    </a></li>
-
-                <li>
-                    <a href='/plus/list.php?tid=3'>
-                        产品介绍
-                    </a></li>
-
-                <li>
-                    <a href='/plus/list.php?tid=4'>
-                        企业风采
-                    </a></li>
-
-                <li>
-                    <a href='/plus/list.php?tid=5'>
-                        诚聘英才
-                    </a></li>
-
-                <li>
-                    <a href='/plus/list.php?tid=6'>
-                        联系我们
-                    </a></li>
+                    <a href="__MODULE__/<if condition='$vo[cate_type] eq 1'>List<else />Page </if>/index/cate_id/{$vo.cate_id}">
+                        {$vo.cate_name}
+                    </a>
+                </li>
+                </volist>
 
 
             </ul>
