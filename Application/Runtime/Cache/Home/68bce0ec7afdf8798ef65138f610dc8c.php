@@ -76,9 +76,10 @@
         <div class="right">
             <h1>
                 <div class="page">
-                    <a href='http://www.cy.com/'>网站首页</a> > <a href='/plus/list.php?tid=1'>关于创宜</a>><a>创宜简介</a>
+                    <a href='/chuangyi/index.php/Home/index/index'>网站首页</a>>
+                    <?php if(is_array($res)): $i = 0; $__LIST__ = $res;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><a href="/chuangyi/index.php/Home/<?php if($vo[cate_type] == 1): ?>List<?php else: ?>Page<?php endif; ?>/index/cate_id/<?php echo ($vo["cate_id"]); ?>"><?php echo ($vo["cate_name"]); ?></a>    <?php if($i != count($res) ): ?>><?php endif; endforeach; endif; else: echo "" ;endif; ?>
                 </div>
-                创宜简介
+                <?php echo ($cateself["cate_name"]); ?>
             </h1>
             <div class="cnt-in">
                 <img alt="" src="/uploads/allimg/150727/1-150HG04215915.jpg" style="width: 891px; height: 207px;" /><br />
@@ -114,51 +115,6 @@
         <div class="clr"></div>
     </div>
 </div>
-<div id="footer">
-    <div class="layout footer">
-        <div class="footer-info">
-            <p>Copyright &copy; 2015  Chengdu  origissay  Diagnostics,LTD     技术支持：博海天韵 <a href=http://www.dedecms.com target='_blank'></a>  蜀ICP12007941 </p>
-        </div>
-        <div class="footer-nav">
-            <ul>
-
-                <li>
-                    <a href='/plus/list.php?tid=1'>
-                        关于创宜
-                    </a></li>
-
-                <li>
-                    <a href='/plus/list.php?tid=2'>
-                        最新动态
-                    </a></li>
-
-                <li>
-                    <a href='/plus/list.php?tid=3'>
-                        产品介绍
-                    </a></li>
-
-                <li>
-                    <a href='/plus/list.php?tid=4'>
-                        企业风采
-                    </a></li>
-
-                <li>
-                    <a href='/plus/list.php?tid=5'>
-                        诚聘英才
-                    </a></li>
-
-                <li>
-                    <a href='/plus/list.php?tid=6'>
-                        联系我们
-                    </a></li>
-
-
-            </ul>
-        </div>
-
-        <div class="clr"></div>
-    </div>
-</div>
 
 
 <div id="footer">
@@ -169,35 +125,11 @@
         <div class="footer-nav">
             <ul>
 
-                <li>
-                    <a href='/plus/list.php?tid=1'>
-                        关于创宜
-                    </a></li>
-
-                <li>
-                    <a href='/plus/list.php?tid=2'>
-                        最新动态
-                    </a></li>
-
-                <li>
-                    <a href='/plus/list.php?tid=3'>
-                        产品介绍
-                    </a></li>
-
-                <li>
-                    <a href='/plus/list.php?tid=4'>
-                        企业风采
-                    </a></li>
-
-                <li>
-                    <a href='/plus/list.php?tid=5'>
-                        诚聘英才
-                    </a></li>
-
-                <li>
-                    <a href='/plus/list.php?tid=6'>
-                        联系我们
-                    </a></li>
+                <?php if(is_array($categoryes)): $i = 0; $__LIST__ = $categoryes;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li>
+                    <a href="/chuangyi/index.php/Home/<?php if($vo[cate_type] == 1): ?>List<?php else: ?>Page<?php endif; ?>/index/cate_id/<?php echo ($vo["cate_id"]); ?>">
+                        <?php echo ($vo["cate_name"]); ?>
+                    </a>
+                </li><?php endforeach; endif; else: echo "" ;endif; ?>
 
 
             </ul>

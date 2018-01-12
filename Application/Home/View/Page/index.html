@@ -23,9 +23,12 @@
         <div class="right">
             <h1>
                 <div class="page">
-                    <a href='http://www.cy.com/'>网站首页</a> > <a href='/plus/list.php?tid=1'>关于创宜</a>><a>创宜简介</a>
+                    <a href='__MODULE__/index/index'>网站首页</a>>
+                    <volist name="res" id="vo">
+                        <a href="__MODULE__/<if condition='$vo[cate_type] eq 1'>List<else />Page </if>/index/cate_id/{$vo.cate_id}">{$vo.cate_name}</a>    <if condition="$i neq count($res) ">></if>
+                    </volist>
                 </div>
-                创宜简介
+                {$cateself.cate_name}
             </h1>
             <div class="cnt-in">
                 <img alt="" src="/uploads/allimg/150727/1-150HG04215915.jpg" style="width: 891px; height: 207px;" /><br />

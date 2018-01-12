@@ -78,9 +78,9 @@
             <h1>
                 <div class="page">
                     <a href='/chuangyi/index.php/Home/index/index'>网站首页</a>>
-                    <?php if(is_array($res)): $i = 0; $__LIST__ = $res;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><a href='/plus/list.php?tid=2'><?php echo ($vo["cate_name"]); ?></a>    <?php if($i != count($res) ): ?>><?php endif; endforeach; endif; else: echo "" ;endif; ?>
+                    <?php if(is_array($res)): $i = 0; $__LIST__ = $res;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><a href="/chuangyi/index.php/Home/<?php if($vo[cate_type] == 1): ?>List<?php else: ?>Page<?php endif; ?>/index/cate_id/<?php echo ($vo["cate_id"]); ?>"><?php echo ($vo["cate_name"]); ?></a>    <?php if($i != count($res) ): ?>><?php endif; endforeach; endif; else: echo "" ;endif; ?>
                 </div>
-                公司新闻
+                <?php echo ($cateself["cate_name"]); ?>
             </h1>
             <div class="cnt-in">
                 <div class="news-list-wimg">

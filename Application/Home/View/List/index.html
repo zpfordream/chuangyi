@@ -26,10 +26,10 @@
                 <div class="page">
                     <a href='__MODULE__/index/index'>网站首页</a>>
                     <volist name="res" id="vo">
-                     <a href='/plus/list.php?tid=2'>{$vo.cate_name}</a>    <if condition="$i neq count($res) ">></if>
+                     <a href="__MODULE__/<if condition='$vo[cate_type] eq 1'>List<else />Page </if>/index/cate_id/{$vo.cate_id}">{$vo.cate_name}</a>    <if condition="$i neq count($res) ">></if>
                     </volist>
                 </div>
-                公司新闻
+                {$cateself.cate_name}
             </h1>
             <div class="cnt-in">
                 <div class="news-list-wimg">

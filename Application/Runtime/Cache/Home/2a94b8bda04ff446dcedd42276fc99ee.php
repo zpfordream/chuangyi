@@ -125,35 +125,11 @@
         <div class="footer-nav">
             <ul>
 
-                <li>
-                    <a href='/plus/list.php?tid=1'>
-                        关于创宜
-                    </a></li>
-
-                <li>
-                    <a href='/plus/list.php?tid=2'>
-                        最新动态
-                    </a></li>
-
-                <li>
-                    <a href='/plus/list.php?tid=3'>
-                        产品介绍
-                    </a></li>
-
-                <li>
-                    <a href='/plus/list.php?tid=4'>
-                        企业风采
-                    </a></li>
-
-                <li>
-                    <a href='/plus/list.php?tid=5'>
-                        诚聘英才
-                    </a></li>
-
-                <li>
-                    <a href='/plus/list.php?tid=6'>
-                        联系我们
-                    </a></li>
+                <?php if(is_array($categoryes)): $i = 0; $__LIST__ = $categoryes;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li>
+                    <a href="/chuangyi/index.php/Home/<?php if($vo[cate_type] == 1): ?>List<?php else: ?>Page<?php endif; ?>/index/cate_id/<?php echo ($vo["cate_id"]); ?>">
+                        <?php echo ($vo["cate_name"]); ?>
+                    </a>
+                </li><?php endforeach; endif; else: echo "" ;endif; ?>
 
 
             </ul>
