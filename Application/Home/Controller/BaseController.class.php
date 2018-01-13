@@ -35,10 +35,20 @@ class BaseController extends Controller {
             //获取当前栏目，传到前台
             $cateself=$category->where("cate_id = $cateid")->find();
             $this->assign('cateself',$cateself);
+
+
+            //列表页和单页左边导航最上面，放大字体，如果是一级导航显示自己，如果不是一级导航，显示父类一级导航
+            if($cateself['parentid'] != 0  ){
+                //说明不是1级导航
+                $parentid = $cateself['parentid'];
+                $catetop = $category->where('cate_id='.$parentid)->find();
+                $this->assign('catetop',$catetop);
+            }else{
+                //说明是1级导航
+                $catetop = $cateself;
+                $this->assign('catetop',$catetop);
+            }
         }
-
-
-
 
     }
 }

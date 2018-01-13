@@ -78,7 +78,7 @@ class ArticleController extends Controller {
 
     public function edit(){
         if(IS_POST){
-
+//            pri($_POST);
             //1.获取变量
             $data['ar_id'] = I('ar_id') + 0;
             $data['ar_title'] = trim(I('ar_title'));

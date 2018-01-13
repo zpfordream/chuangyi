@@ -100,79 +100,91 @@
     <ul class="nav sidebar-menu">
         <!--Dashboard-->
         <li>
-            <a href="https://chuanke.baidu.com/s2260700.html" target="_blank">
+            <a href="/chuangyi/index.php/Admin/category/index" target="_blank">
                 <i class="menu-icon fa fa-film"></i>
-
-                            <span class="menu-text">
-                                ThinkPHP5视频教程                            </span>
-
+                <span class="menu-text">分类管理</span>
                 <i class="menu-expand"></i>
             </a>
         </li>
         <li>
-            <a href="/admin/main/index.html">
+            <a href="/chuangyi/index.php/Admin/article/index">
                 <i class="menu-icon fa fa-gear"></i>
-
-                            <span class="menu-text">
-                                控制面板                            </span>
-
+                <span class="menu-text">文章管理</span>
                 <i class="menu-expand"></i>
             </a>
         </li>
         <li>
-            <a href="#" class="menu-dropdown">
+            <a href="/chuangyi/index.php/Admin/link/index">
                 <i class="menu-icon fa fa-gear"></i>
-
-                            <span class="menu-text">
-                                文档                            </span>
-
+                <span class="menu-text">链接管理</span>
                 <i class="menu-expand"></i>
             </a>
-            <ul class="submenu">
-                <li>
-                    <a href="/admin/document/index.html">
-                                    <span class="menu-text">
-                                        文章列表                                    </span>
-                        <i class="menu-expand"></i>
-                    </a>
-                </li>
-
-            </ul>
         </li>
-        <li class="open">
-            <a href="#" class="menu-dropdown">
+        <li>
+            <a href="/chuangyi/index.php/Admin/Conf/index">
                 <i class="menu-icon fa fa-gear"></i>
-
-                            <span class="menu-text">
-                                系统                            </span>
-
+                <span class="menu-text">配置管理</span>
                 <i class="menu-expand"></i>
             </a>
-            <ul class="submenu">
-                <li class="active">
-                    <a href="/admin/user/index.html">
-                                    <span class="menu-text">
-                                        用户管理                                    </span>
-                        <i class="menu-expand"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="/admin/auth_group/index.html">
-                                    <span class="menu-text">
-                                        角色管理                                    </span>
-                        <i class="menu-expand"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="/admin/auth_rule/index.html">
-                                    <span class="menu-text">
-                                        权限列表                                    </span>
-                        <i class="menu-expand"></i>
-                    </a>
-                </li>
-
-            </ul>
         </li>
+        <li>
+            <a href="/chuangyi/index.php/Admin/Conf/conflst">
+                <i class="menu-icon fa fa-gear"></i>
+                <span class="menu-text">网站配置列表</span>
+                <i class="menu-expand"></i>
+            </a>
+        </li>
+        <!--<li>-->
+            <!--<a href="#" class="menu-dropdown">-->
+                <!--<i class="menu-icon fa fa-gear"></i>-->
+                <!--<span class="menu-text">文档 </span>-->
+                <!--<i class="menu-expand"></i>-->
+            <!--</a>-->
+            <!--<ul class="submenu">-->
+                <!--<li>-->
+                    <!--<a href="/admin/document/index.html">-->
+                                    <!--<span class="menu-text">-->
+                                        <!--文章列表                                    </span>-->
+                        <!--<i class="menu-expand"></i>-->
+                    <!--</a>-->
+                <!--</li>-->
+
+            <!--</ul>-->
+        <!--</li>-->
+        <!--<li class="open">-->
+            <!--<a href="#" class="menu-dropdown">-->
+                <!--<i class="menu-icon fa fa-gear"></i>-->
+
+                            <!--<span class="menu-text">-->
+                                <!--系统                            </span>-->
+
+                <!--<i class="menu-expand"></i>-->
+            <!--</a>-->
+            <!--<ul class="submenu">-->
+                <!--<li class="active">-->
+                    <!--<a href="/admin/user/index.html">-->
+                                    <!--<span class="menu-text">-->
+                                        <!--用户管理                                    </span>-->
+                        <!--<i class="menu-expand"></i>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a href="/admin/auth_group/index.html">-->
+                                    <!--<span class="menu-text">-->
+                                        <!--角色管理                                    </span>-->
+                        <!--<i class="menu-expand"></i>-->
+                    <!--</a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a href="/admin/auth_rule/index.html">-->
+                                    <!--<span class="menu-text">-->
+                                        <!--权限列表                                    </span>-->
+                        <!--<i class="menu-expand"></i>-->
+                    <!--</a>-->
+                <!--</li>-->
+
+            <!--</ul>-->
+        <!--</li>-->
 
     </ul>
     <!-- /Sidebar Menu -->
@@ -280,7 +292,7 @@
                                         <div class="form-group">
                                             <label for="content" class="col-sm-2 control-label no-padding-right">栏目内容</label>
                                             <div class="col-sm-6">
-                                                <textarea name="cate_content" id="content" cols="60" rows="5"><?php echo ($articlesa["ar_content"]); ?></textarea>
+                                                <textarea name="ar_content" id="content" cols="60" rows="5"><?php echo ($articlesa["ar_content"]); ?></textarea>
                                             </div>
                                         </div>
 
