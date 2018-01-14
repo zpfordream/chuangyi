@@ -27,7 +27,7 @@
             <div class="nav">
                 <ul>
                     <li>
-                        <a href="/" class="header foucs">
+                        <a href="/chuangyi/index.php" <?php if($index == "true" ): ?>class="header foucs" <?php else: ?> class="header"<?php endif; ?> >
                         <p>网站首页</p>
                         <p class="en">Home</p>
                         </a>
@@ -57,9 +57,7 @@
 
 <div id="full-screen-slider">
     <ul id="slides">
-        <li style="background:url('http://127.0.0.1/chuangyi/Public/images/1-150H415361I41.jpg') no-repeat center center"><a href="javascript:void(0)">首页焦点图2-科研</a></li>
-        <li style="background:url('http://127.0.0.1/chuangyi/Public/images/1-150H32313250-L.jpg') no-repeat center center"><a href="javascript:void(0)">首页焦点图1-科技为先..</a></li>
-
+        <?php if(is_array($ar_rems)): $i = 0; $__LIST__ = $ar_rems;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li style="background:url('/chuangyi/<?php echo ($vo["ar_pic"]); ?>') no-repeat center center"><a href="javascript:void(0)">首页焦点图2-科研</a></li><?php endforeach; endif; else: echo "" ;endif; ?>
     </ul>
 </div>
 <div class="notice">
@@ -87,15 +85,10 @@
         <div class="mid">
             <h2><a href="/plus/list.php?tid=2">+</a>新闻动态</h2>
             <ul class="indexnews">
-                <li>
-                    <a href="/news/company/2016/0324/35.html"><b>01</b>肖斯达克成都高新大核酸研究院揭牌成立</a>
-                    <p>在3月19日的 创业天府菁蓉汇生物医药专场中 ，肖斯达克成都高新大核酸研究院正式揭牌成立。此前，去年‪11月16日‬，成都高新区管...</p>
-                </li>
-                <li>
-                    <a href="/news/company/2015/1228/34.html"><b>02</b>《经济日报》刊登创宜生物科技公司董事长关祥乾先生人物专访</a>
-                    <p>创宜生物科技有限公司： 老男孩的创业梦 本报记者 刘 畅 与人们印象中的生物科技领域创业者不同，年近50岁的创宜生物科技有限公司...</p>
-                </li>
-
+                <?php if(is_array($ar_news)): $i = 0; $__LIST__ = $ar_news;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li>
+                    <a href="/chuangyi/index.php/Home/Article/ar_id/<?php echo ($vo["ar_id"]); ?>"><b>0<?php echo ($i); ?></b><?php echo ($vo["ar_title"]); ?></a>
+                    <p><?php echo ($vo["ar_content"]); ?>.</p>
+                </li><?php endforeach; endif; else: echo "" ;endif; ?>
             </ul>
         </div>
         <div class="right">

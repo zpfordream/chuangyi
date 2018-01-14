@@ -1,32 +1,34 @@
 <include file="Common:header" />
 
-
 <div id="full-screen-slider-sec">
-            <div class="layout">
-                <div class="page-title">
-                    公司新闻
-                </div>
-            </div>
+    <div class="layout">
+        <div class="page-title">
+            {$catetop.cate_name}
         </div>
-            <div class="main">
-                <div class="layout cnt2">
-                    <div class="left">
-                        <ul>
-                            <li><a href='/plus/list.php?tid=8' class='foucs'>公司新闻</a> </li>
-                            <li><a href="/plus/list.php?tid=9" >国际交流</a></li>
+    </div>
+</div>
+<div class="main">
+    <div class="layout cnt2">
+        <div class="left">
+            <ul>
+                <volist name="cateson" id="vo">
+                    <li><a href="__MODULE__/<if condition='$vo[cate_type] eq 1'>List<else />Page </if>/index/cate_id/{$vo.cate_id}" >{$vo.cate_name}</a></li>
+                </volist>
+            </ul>
+        </div>
+        <div class="right">
+            <h1>
+                <div class="page">
+                    <a href='__MODULE__/index/index'>网站首页</a>>
+                    <volist name="res" id="vo">
+                        <a href="__MODULE__/<if condition='$vo[cate_type] eq 1'>List<else />Page </if>/index/cate_id/{$vo.cate_id}">{$vo.cate_name}</a> >
+                    </volist>
+                </div>
+                {$cateself.cate_name}
+            </h1>
 
-                            <li><a href="/plus/list.php?tid=10" >行业资讯</a></li>
-
-                        </ul>
-                    </div>
-                    <div class="right">
-                        <h1>
-                            <div class="page">
-                                <a href='http://www.cy.com/'>网站首页</a> > <a href='/plus/list.php?tid=2'>最新动态</a> > <a href='/plus/list.php?tid=8'>公司新闻</a> >
-                            </div>
-                            公司新闻
-                        </h1>
             <div class="cnt-in">
+                <div style="text-align: center;">{$article.ar_title}</div>
                 {$article.ar_content|htmlspecialchars_decode}
             </div>
         </div>

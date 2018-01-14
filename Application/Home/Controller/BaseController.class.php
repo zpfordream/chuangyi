@@ -23,13 +23,26 @@ class BaseController extends Controller {
 
 
 
-        //列表页，当前页，内容页的当前位置
+        //进入页面后，传入参数可能是cateid，也可能在文章详情页，但是也需要cate_id，只能通过ar_id先取
         if(I('cate_id')){
             $cateid=I('cate_id');
+        }elseif(I('ar_id')){
+            $ar_id = I('ar_id') + 0 ;
+            $article = D('Common/Article');
+            $articlesa = $article ->where('ar_id = '.$ar_id) ->find();
+            $cateid= $articlesa['ar_cateid'];
+
+            //这里已经实例化了，直接实例化文章，传到文章详情页了
+            $this->assign('article',$articlesa);
+        }
+
+
+        //列表页，当前页，内容页的当前位置
+        if($cateid){
 
             //通过调用model，得到面包屑的父类列表
             $result = $category ->getParent($cateid);
-//        var_dump($result);
+            //  var_dump($result);
             //父类面包屑传到前台
             $this->assign('res',$result);
             //获取当前栏目，传到前台
@@ -43,12 +56,31 @@ class BaseController extends Controller {
                 $parentid = $cateself['parentid'];
                 $catetop = $category->where('cate_id='.$parentid)->find();
                 $this->assign('catetop',$catetop);
+                //左边导航，子导航页面，左边上面是top导航，下面是子导航
+                $topid = $catetop['cate_id'];
+                $cateson = $category ->where('parentid = '.$topid) ->select();
+                $this -> assign( 'cateson',$cateson );
+
+
             }else{
                 //说明是1级导航
                 $catetop = $cateself;
                 $this->assign('catetop',$catetop);
+                //左边导航，子导航页面，左边上面是top导航，下面是子导航
+                $topid = $catetop['cate_id'];
+                $cateson = $category ->where('parentid = '.$topid) ->select();
+                $this -> assign( 'cateson',$cateson );
             }
+
         }
+
+
+        //首页高亮默认不显示，在index里设置为true
+        $this->assign('index',false);
+
+
+
+
 
     }
 }

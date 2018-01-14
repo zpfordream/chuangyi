@@ -26,7 +26,7 @@
             <div class="nav">
                 <ul>
                     <li>
-                        <a href="/" class="header foucs">
+                        <a href="/chuangyi/index.php" <?php if($index == "true" ): ?>class="header foucs" <?php else: ?> class="header"<?php endif; ?> >
                         <p>网站首页</p>
                         <p class="en">Home</p>
                         </a>
@@ -53,33 +53,31 @@
     </div>
 </div>
 
-
 <div id="full-screen-slider-sec">
-            <div class="layout">
-                <div class="page-title">
-                    公司新闻
-                </div>
-            </div>
+    <div class="layout">
+        <div class="page-title">
+            <?php echo ($catetop["cate_name"]); ?>
         </div>
-            <div class="main">
-                <div class="layout cnt2">
-                    <div class="left">
-                        <ul>
-                            <li><a href='/plus/list.php?tid=8' class='foucs'>公司新闻</a> </li>
-                            <li><a href="/plus/list.php?tid=9" >国际交流</a></li>
+    </div>
+</div>
+<div class="main">
+    <div class="layout cnt2">
+        <div class="left">
+            <ul>
+                <?php if(is_array($cateson)): $i = 0; $__LIST__ = $cateson;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li><a href="/chuangyi/index.php/Home/<?php if($vo[cate_type] == 1): ?>List<?php else: ?>Page<?php endif; ?>/index/cate_id/<?php echo ($vo["cate_id"]); ?>" ><?php echo ($vo["cate_name"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
+            </ul>
+        </div>
+        <div class="right">
+            <h1>
+                <div class="page">
+                    <a href='/chuangyi/index.php/Home/index/index'>网站首页</a>>
+                    <?php if(is_array($res)): $i = 0; $__LIST__ = $res;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><a href="/chuangyi/index.php/Home/<?php if($vo[cate_type] == 1): ?>List<?php else: ?>Page<?php endif; ?>/index/cate_id/<?php echo ($vo["cate_id"]); ?>"><?php echo ($vo["cate_name"]); ?></a> ><?php endforeach; endif; else: echo "" ;endif; ?>
+                </div>
+                <?php echo ($cateself["cate_name"]); ?>
+            </h1>
 
-                            <li><a href="/plus/list.php?tid=10" >行业资讯</a></li>
-
-                        </ul>
-                    </div>
-                    <div class="right">
-                        <h1>
-                            <div class="page">
-                                <a href='http://www.cy.com/'>网站首页</a> > <a href='/plus/list.php?tid=2'>最新动态</a> > <a href='/plus/list.php?tid=8'>公司新闻</a> >
-                            </div>
-                            公司新闻
-                        </h1>
             <div class="cnt-in">
+                <div style="text-align: center;"><?php echo ($article["ar_title"]); ?></div>
                 <?php echo (htmlspecialchars_decode($article["ar_content"])); ?>
             </div>
         </div>

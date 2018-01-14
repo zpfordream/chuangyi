@@ -195,13 +195,83 @@
         <!-- Page Content -->
         <div class="page-content">
             <!-- Page Breadcrumb -->
-            后台主页
+            <div class="page-breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="#">系统</a>
+                    </li>
+                    <li>
+                        <a href="#">用户管理</a>
+                    </li>
+                    <li class="active">修改用户</li>
+                </ul>
+            </div>
+            <!-- /Page Breadcrumb -->
+
+            <!-- Page Body -->
+            <div class="page-body">
+
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12 col-xs-12">
+                        <div class="widget">
+                            <div class="widget-header bordered-bottom bordered-blue">
+                                <span class="widget-caption">修改用户</span>
+                            </div>
+                            <div class="widget-body">
+                                <div id="horizontal-form">
+
+                                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+
+                                        <div class="form-group">
+                                            <label for="ad_name" class="col-sm-2 control-label no-padding-right">用户名称</label>
+                                            <div class="col-sm-6">
+                                                <input class="form-control" id="ad_name" placeholder="" name="ad_name" required="" type="text" value="<?php echo ($adminesa["ad_name"]); ?>">
+                                            </div>
+                                            <p class="help-block col-sm-4 red">* 必填</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="ad_password" class="col-sm-2 control-label no-padding-right">用户密码</label>
+                                            <div class="col-sm-6 ">
+                                                <input class="form-control" id="ad_password" placeholder="" name="ad_password"  type="password" value="<?php echo ($adminesa["ad_password"]); ?>">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="re_password" class="col-sm-2 control-label no-padding-right">确认密码</label>
+                                            <div class="col-sm-6 ">
+                                                <input class="form-control" id="re_password" placeholder="" name="re_password"  type="password" value="<?php echo ($adminesa["ad_password"]); ?>">
+                                            </div>
+                                        </div>
+
+
+                                        <input type="hidden" name="ad_id" value="<?php echo ($adminesa["ad_id"]); ?>">
+
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-10">
+                                                <button type="submit" class="btn btn-default">保存信息</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
             <!-- /Page Body -->
         </div>
         <!-- /Page Content -->
     </div>
 </div>
 
+<script src="http://127.0.0.1/chuangyi/Public/ueditor/ueditor.config.js"></script>
+<script src="http://127.0.0.1/chuangyi/Public/ueditor/ueditor.all.min.js"></script>
+<script src="http://127.0.0.1/chuangyi/Public/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript">
+    UE.getEditor('content',{initialFrameWidth:800,initialFrameHeight:400,});
+</script>
 
 <!--Basic Scripts-->
 <script src="http://127.0.0.1/chuangyi/Application/Admin/Public/style/jquery_002.js"></script>

@@ -26,7 +26,7 @@
             <div class="nav">
                 <ul>
                     <li>
-                        <a href="/" class="header foucs">
+                        <a href="/chuangyi/index.php" <?php if($index == "true" ): ?>class="header foucs" <?php else: ?> class="header"<?php endif; ?> >
                         <p>网站首页</p>
                         <p class="en">Home</p>
                         </a>
@@ -62,14 +62,10 @@
 </div>
 <div class="main">
     <div class="layout cnt2">
-        <div class="left">
-            <ul>
+        <div class="left" >
+            <ul id="nav2">
 
-                <li><a href="/plus/list.php?tid=11" class="foucs">创宜简介</a></li>
-
-                <li><a href="/plus/list.php?tid=12" class="1">创宜文化</a></li>
-
-                <li><a href="/plus/list.php?tid=13" class="2">创宜视频</a></li>
+                <?php if(is_array($cateson)): $i = 0; $__LIST__ = $cateson;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li><a href="/chuangyi/index.php/Home/<?php if($vo[cate_type] == 1): ?>List<?php else: ?>Page<?php endif; ?>/index/cate_id/<?php echo ($vo["cate_id"]); ?>" ><?php echo ($vo["cate_name"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
 
             </ul>
         </div>
@@ -114,3 +110,17 @@
 <script>new srcMarquee("ScrollMe",0,1,808,27,3,5000,1000,27)</script>
 </body>
 </html>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        var hrefs=$("#nav2 > li > a");
+        hrefs.each(function(i,val){
+            var cururl=window.location.href;
+            if(cururl.contains(val)){
+                $(this).addClass("foucs");
+            }
+        });
+    });
+</script>

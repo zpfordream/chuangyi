@@ -83,11 +83,11 @@
 
 <!-- /头部 -->
 
-<div class="main-container container-fluid">
-    <div class="page-container">
-        <!-- Page Sidebar -->
+	<div class="main-container container-fluid">
+		<div class="page-container">
+            <!-- Page Sidebar -->
 
-        <!-- Page Sidebar -->
+            <!-- Page Sidebar -->
 <div class="page-sidebar" id="sidebar">
     <!-- Page Sidebar Header-->
     <div class="sidebar-header-wrapper">
@@ -191,16 +191,79 @@
 </div>
 <!-- /Page Sidebar -->
 
-        <!-- /Page Sidebar -->
-        <!-- Page Content -->
-        <div class="page-content">
-            <!-- Page Breadcrumb -->
-            后台主页
-            <!-- /Page Body -->
+            <!-- /Page Sidebar -->
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Page Breadcrumb -->
+                <div class="page-breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li><a href="#">系统</a></li>
+                        <li class="active">用户管理</li>
+                    </ul>
+                </div>
+                <!-- /Page Breadcrumb -->
+
+                <!-- Page Body -->
+                <div class="page-body">
+                    
+<button type="button" tooltip="添加文章" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '/chuangyi/index.php/Admin/Admin/add'"> <i class="fa fa-plus"></i> 添加文章</button>
+<button type="button" tooltip="批量删除" class="btn btn-sm btn-azure btn-addon" onClick="javascript:document.getElementById('myForm').submit()"> <i class="fa fa-plus"></i> 批量删除</button>
+
+<div class="row">
+    <div class="col-lg-12 col-sm-12 col-xs-12">
+        <div class="widget">
+            <div class="widget-body">
+                <div class="flip-scroll">
+                    <table class="table table-bordered table-hover">
+                        <thead class="">
+                            <tr>
+                                <th class="text-center" width="2%"></th>
+                                <th class="text-center">用户ID</th>
+                                <th class="text-center">用户名</th>
+                                <th class="text-center">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        <form action="/chuangyi/index.php/Admin/Admin/Adelete" method="post" id="myForm" >
+
+                        <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
+                                <td align="center">
+                                    <input type="checkbox" name="id[]" value="<?php echo ($vo["ad_id"]); ?>">
+                                </td>
+                                <td align="center"><?php echo ($vo["ad_id"]); ?></td>
+                                <td align="center"><?php echo ($vo["ad_name"]); ?></td>
+
+                                <td align="center">
+                                    <a href="/chuangyi/index.php/Admin/Admin/edit/ad_id/<?php echo ($vo["ad_id"]); ?>" class="btn btn-primary btn-sm shiny">
+                                        <i class="fa fa-edit"></i> 编辑
+                                    </a>
+                                    <a href="#" onClick="warning('确实要删除吗', '/chuangyi/index.php/Admin/Admin/delete/ad_id/<?php echo ($vo["ad_id"]); ?>')" class="btn btn-danger btn-sm shiny">
+                                        <i class="fa fa-trash-o"></i> 删除
+                                    </a>
+                                </td>
+                            </tr><?php endforeach; endif; else: echo "" ;endif; ?>
+
+                        </form>
+
+                        </tbody>
+
+                    </table>
+                    <?php echo ($page); ?>
+                </div>
+                <div>
+                	                </div>
+            </div>
         </div>
-        <!-- /Page Content -->
     </div>
 </div>
+
+                </div>
+                <!-- /Page Body -->
+            </div>
+            <!-- /Page Content -->
+		</div>	
+	</div>
 
 
 <!--Basic Scripts-->

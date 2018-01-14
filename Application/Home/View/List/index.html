@@ -11,14 +11,10 @@
 <div class="main">
     <div class="layout cnt2">
         <div class="left">
-            <ul>
-
-                <li><a href="/plus/list.php?tid=8" class="foucs">公司新闻</a></li>
-
-                <li><a href="/plus/list.php?tid=9" class="1">国际交流</a></li>
-
-                <li><a href="/plus/list.php?tid=10" class="2">行业资讯</a></li>
-
+            <ul id="nav2">
+                <volist name="cateson" id="vo">
+                <li><a href="__MODULE__/<if condition='$vo[cate_type] eq 1'>List<else />Page </if>/index/cate_id/{$vo.cate_id}" >{$vo.cate_name}</a></li>
+                </volist>
             </ul>
         </div>
         <div class="right">
@@ -57,3 +53,15 @@
 </div>
 
 <include file="Common:footer" />
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        var hrefs=$("#nav2 > li > a");
+        hrefs.each(function(i,val){
+            var cururl=window.location.href;
+            if(cururl.contains(val)){
+                $(this).addClass("foucs");
+            }
+        });
+    });
+</script>
