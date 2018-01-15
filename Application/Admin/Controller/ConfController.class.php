@@ -2,7 +2,7 @@
 namespace Admin\Controller;
 use Think\Controller;
 
-class ConfController extends Controller {
+class ConfController extends BaseController {
 
     public function index(){
 

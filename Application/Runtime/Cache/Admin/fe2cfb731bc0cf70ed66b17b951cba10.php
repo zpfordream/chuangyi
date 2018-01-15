@@ -50,14 +50,14 @@
                                     <img src="http://127.0.0.1/chuangyi/Application/Admin/Public/images/adam-jansen.jpg">
                                 </div>
                                 <section>
-                                    <h2><span class="profile"><span>admin</span></span></h2>
+                                    <h2><span class="profile"><span><?php echo (session('ad_name')); ?></span></span></h2>
                                 </section>
                             </a>
                             <!--Login Area Dropdown-->
                             <ul class="pull-right dropdown-menu dropdown-arrow dropdown-login-area">
                                 <li class="username"><a>David Stevenson</a></li>
                                 <li class="dropdown-footer">
-                                    <a href="/admin/user/logout.html">
+                                    <a href="/chuangyi/index.php/Admin/Login/logout">
                                         退出登录
                                     </a>
                                 </li>
@@ -131,6 +131,13 @@
             <a href="/chuangyi/index.php/Admin/Conf/conflst">
                 <i class="menu-icon fa fa-gear"></i>
                 <span class="menu-text">网站配置列表</span>
+                <i class="menu-expand"></i>
+            </a>
+        </li>
+        <li>
+            <a href="/chuangyi/index.php/Admin/Admin/index">
+                <i class="menu-icon fa fa-gear"></i>
+                <span class="menu-text">用户管理</span>
                 <i class="menu-expand"></i>
             </a>
         </li>

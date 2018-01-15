@@ -50,14 +50,14 @@
                                     <img src="http://127.0.0.1/chuangyi/Application/Admin/Public/images/adam-jansen.jpg">
                                 </div>
                                 <section>
-                                    <h2><span class="profile"><span>admin</span></span></h2>
+                                    <h2><span class="profile"><span><?php echo (session('ad_name')); ?></span></span></h2>
                                 </section>
                             </a>
                             <!--Login Area Dropdown-->
                             <ul class="pull-right dropdown-menu dropdown-arrow dropdown-login-area">
                                 <li class="username"><a>David Stevenson</a></li>
                                 <li class="dropdown-footer">
-                                    <a href="/admin/user/logout.html">
+                                    <a href="/chuangyi/index.php/Admin/Login/logout">
                                         退出登录
                                     </a>
                                 </li>
@@ -134,6 +134,13 @@
                 <i class="menu-expand"></i>
             </a>
         </li>
+        <li>
+            <a href="/chuangyi/index.php/Admin/Admin/index">
+                <i class="menu-icon fa fa-gear"></i>
+                <span class="menu-text">用户管理</span>
+                <i class="menu-expand"></i>
+            </a>
+        </li>
         <!--<li>-->
             <!--<a href="#" class="menu-dropdown">-->
                 <!--<i class="menu-icon fa fa-gear"></i>-->
@@ -206,7 +213,7 @@
                 <!-- Page Body -->
                 <div class="page-body">
                     
-<button type="button" tooltip="添加文章" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '/chuangyi/index.php/Admin/Admin/add'"> <i class="fa fa-plus"></i> 添加文章</button>
+<button type="button" tooltip="添加文章" class="btn btn-sm btn-azure btn-addon" onClick="javascript:window.location.href = '/chuangyi/index.php/Admin/Admin/add'"> <i class="fa fa-plus"></i> 添加用户</button>
 <button type="button" tooltip="批量删除" class="btn btn-sm btn-azure btn-addon" onClick="javascript:document.getElementById('myForm').submit()"> <i class="fa fa-plus"></i> 批量删除</button>
 
 <div class="row">
