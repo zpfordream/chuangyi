@@ -52,6 +52,16 @@ class ArticleController extends BaseController {
                 }
             }
 
+
+            //1.5 修改图片
+            $pic = $data['ar_pic'];
+
+            $image = new \Think\Image();
+            $image->open($pic);
+            // 按照原图的比例生成一个最大为150*150的缩略图并保存为thumb.jpg
+            $image->thumb(200, 200)->save($pic);
+
+
             //2. 验证变量
             $article = D('Common/Article');
 
@@ -104,6 +114,18 @@ class ArticleController extends BaseController {
                     $data['ar_pic'] = $info['savepath'] . $info['savename'];
                 }
             }
+
+
+            //1.5 修改图片
+            $pic = $data['ar_pic'];
+
+            $image = new \Think\Image();
+            $image->open($pic);
+            // 按照原图的比例生成一个最大为150*150的缩略图并保存为thumb.jpg
+            $image->thumb(200, 200)->save($pic);
+
+
+
 
             //2. 验证变量
             $article = D('Common/Article');

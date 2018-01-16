@@ -1,4 +1,10 @@
-﻿<?php
+<?php
+/**
+ * Created by PhpStorm.
+ * User: ZP
+ * Date: 2018/1/11
+ * Time: 22:26
+ */
 namespace Home\Controller;
 use Think\Controller;
 
